@@ -23,8 +23,8 @@
  *  Developed by Technource (https://www.technource.com)
  */
 
-export 'package:flutter_setup/global/constant/resources/styles.dart';
-export 'package:flutter_setup/global/constant/resources/strings.dart';
-export 'package:flutter_setup/global/constant/resources/colors.dart';
-export 'package:flutter_setup/global/constant/resources/assets.dart';
-export 'package:flutter_setup/global/constant/resources/resources.dart';
+export 'package:semaphore_web/global/constant/resources/styles.dart';
+export 'package:semaphore_web/global/constant/resources/strings.dart';
+export 'package:semaphore_web/global/constant/resources/colors.dart';
+export 'package:semaphore_web/global/constant/resources/assets.dart';
+export 'package:semaphore_web/global/constant/resources/resources.dart';

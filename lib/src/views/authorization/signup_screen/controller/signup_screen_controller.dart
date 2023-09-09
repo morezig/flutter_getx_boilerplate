@@ -24,19 +24,16 @@
  */
 
 import 'package:flutter/material.dart';
-import 'package:flutter_setup/src/routes/app_pages.dart';
+import 'package:semaphore_web/src/routes/app_pages.dart';
 import 'package:get/get.dart';
-import 'package:flutter_setup/global/component/country_code.dart';
-import 'package:flutter_setup/global/component/country_item.dart';
-import 'package:flutter_setup/global/constant/resources/resources.dart';
-import 'package:flutter_setup/global/utils/utils.dart';
+import 'package:semaphore_web/global/component/country_code.dart';
+import 'package:semaphore_web/global/component/country_item.dart';
+import 'package:semaphore_web/global/constant/resources/resources.dart';
+import 'package:semaphore_web/global/utils/utils.dart';
 
 class SignupScreenController extends GetxController {
   static SignupScreenController get to => Get.put(SignupScreenController());
-  RxBool termAndConditionCheckBox = false.obs,
-      isAcceptPolicy = false.obs,
-      isPwdVisible = false.obs,
-      isConPwdVisible = false.obs;
+  RxBool termAndConditionCheckBox = false.obs, isAcceptPolicy = false.obs, isPwdVisible = false.obs, isConPwdVisible = false.obs;
   var countryList = <CountryItem>[].obs;
   Rx<CountryItem> selectedCont = CountryItem().obs;
 

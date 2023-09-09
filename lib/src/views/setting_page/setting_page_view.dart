@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_setup/src/views/setting_page/components/drawer_list_item_widget.dart';
-import 'package:flutter_setup/src/views/setting_page/components/user_info_widget.dart';
-import 'package:flutter_setup/src/views/setting_page/model/drawer_model.dart';
+import 'package:semaphore_web/src/views/setting_page/components/drawer_list_item_widget.dart';
+import 'package:semaphore_web/src/views/setting_page/components/user_info_widget.dart';
+import 'package:semaphore_web/src/views/setting_page/model/drawer_model.dart';
 import 'package:get/get.dart';
-import 'package:flutter_setup/global/constant/resources/import_resources.dart';
-import 'package:flutter_setup/src/routes/app_pages.dart';
-import 'package:flutter_setup/src/views/setting_page/controller/setting_page_controller.dart';
+import 'package:semaphore_web/global/constant/resources/import_resources.dart';
+import 'package:semaphore_web/src/routes/app_pages.dart';
+import 'package:semaphore_web/src/views/setting_page/controller/setting_page_controller.dart';
 
 const ksWidgetHorizontalSpace15 = 15.0;
 const ksWidgetVerticalSpace15 = 15.0;

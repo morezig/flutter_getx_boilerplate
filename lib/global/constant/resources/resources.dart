@@ -23,7 +23,7 @@
  *  Developed by Technource (https://www.technource.com)
  */
 
-import 'package:flutter_setup/global/constant/resources/strings.dart';
+import 'package:semaphore_web/global/constant/resources/strings.dart';
 
 const ksBodyVerticalSpace30 = 30.0;
 const ksBodyHorizontalSpace30 = 30.0;

@@ -1,12 +1,12 @@
 import 'dart:ui';
 
-import 'package:flutter_setup/global/preference/user_preference.dart';
-import 'package:flutter_setup/global/utils/config.dart';
-import 'package:flutter_setup/global/utils/logger.dart';
-import 'package:flutter_setup/src/routes/app_pages.dart';
-import 'package:flutter_setup/src/views/setting_page/model/drawer_model.dart';
+import 'package:semaphore_web/global/preference/user_preference.dart';
+import 'package:semaphore_web/global/utils/config.dart';
+import 'package:semaphore_web/global/utils/logger.dart';
+import 'package:semaphore_web/src/routes/app_pages.dart';
+import 'package:semaphore_web/src/views/setting_page/model/drawer_model.dart';
 import 'package:get/get.dart';
-import 'package:flutter_setup/global/constant/resources/resources.dart';
+import 'package:semaphore_web/global/constant/resources/resources.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../../../global/dialog/dialog_helper.dart';
 

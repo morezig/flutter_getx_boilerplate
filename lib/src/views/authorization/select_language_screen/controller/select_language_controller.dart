@@ -25,8 +25,8 @@
 
 import 'package:get/get.dart';
 
-import 'package:flutter_setup/global/utils/config.dart';
-import 'package:flutter_setup/src/views/authorization/select_language_screen/model/get_language_list_model.dart';
+import 'package:semaphore_web/global/utils/config.dart';
+import 'package:semaphore_web/src/views/authorization/select_language_screen/model/get_language_list_model.dart';
 
 class SelectLanguageController extends GetxController {
   RxList<LanguageData> languageList = <LanguageData>[

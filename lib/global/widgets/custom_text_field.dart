@@ -1,4 +1,3 @@
-
 /*
  * Copyright (c) 2023 Technource. All rights reserved.
  *
@@ -28,7 +27,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
-import 'package:flutter_setup/global/constant/resources/import_resources.dart';
+import 'package:semaphore_web/global/constant/resources/import_resources.dart';
 
 class AppTextField extends StatelessWidget {
   final String hintText;
@@ -110,11 +109,7 @@ class AppTextField extends StatelessWidget {
     return Row(children: [
       Expanded(
           child: Column(children: [
-        isScreenTitle ?? false
-            ? Row(children: [
-                Text(title ?? '', style: AppStyles.txt12sizeW600ColorPrimary)
-              ])
-            : const SizedBox(),
+        isScreenTitle ?? false ? Row(children: [Text(title ?? '', style: AppStyles.txt12sizeW600ColorPrimary)]) : const SizedBox(),
         Container(
             child: textEditingController != null
                 ? TextFormField(
@@ -134,8 +129,7 @@ class AppTextField extends StatelessWidget {
                     textAlignVertical: TextAlignVertical.center,
                     textInputAction: inputAction ?? TextInputAction.next,
                     validator: validator,
-                    style: textStyle ??
-                        const TextStyle(fontSize: 14, color: AppColors.kcWhite),
+                    style: textStyle ?? const TextStyle(fontSize: 14, color: AppColors.kcWhite),
                     readOnly: isReadOnly ?? false,
                     obscureText: isPwd ?? false,
                     decoration: buildInputDecoration())
@@ -155,8 +149,7 @@ class AppTextField extends StatelessWidget {
                     textCapitalization: textCapitalization,
                     textInputAction: inputAction ?? TextInputAction.next,
                     readOnly: isReadOnly ?? false,
-                    style: textStyle ??
-                        const TextStyle(fontSize: 14, color: AppColors.kcWhite),
+                    style: textStyle ?? const TextStyle(fontSize: 14, color: AppColors.kcWhite),
                     validator: validator,
                     textAlignVertical: TextAlignVertical.center,
                     obscureText: isPwd ?? false,
@@ -167,48 +160,22 @@ class AppTextField extends StatelessWidget {
 
   buildInputDecoration() {
     return InputDecoration(
-        focusedErrorBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.all(
-                Radius.circular(borderRadius ?? Get.height * 0.01)),
-            borderSide: BorderSide(
-                color: borderColor ?? AppColors.kcTransparent)),
-        errorBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.all(
-                Radius.circular(borderRadius ?? Get.height * 0.01)),
-            borderSide: BorderSide(
-                color: borderColor ?? AppColors.kcTransparent)),
-        enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.all(
-                Radius.circular(borderRadius ?? Get.height * 0.01)),
-            borderSide: BorderSide(
-                color: borderColor ?? AppColors.kcTransparent)),
-        focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.all(
-                Radius.circular(borderRadius ?? Get.height * 0.01)),
-            borderSide: BorderSide(
-                color: borderColor ?? AppColors.kcTransparent)),
-        border: OutlineInputBorder(
-            borderRadius: BorderRadius.all(
-                Radius.circular(borderRadius ?? Get.height * 0.01)),
-            borderSide: BorderSide(
-                color: borderColor ?? AppColors.kcTransparent)),
-        suffixIconConstraints:
-            const BoxConstraints(maxWidth: 40, maxHeight: 50, minHeight: 50),
-        suffixIcon: suffixIconPath != null
-            ? buildSuffixIcon()
-            : const SizedBox(height: 35, width: 1),
-        prefixIconConstraints:
-            const BoxConstraints(maxWidth: 60, maxHeight: 50, minHeight: 50),
-        prefixIcon: prefixIconPath != null
-            ? buildPrefixIcon()
-            : const SizedBox(height: 35, width: 10),
+        focusedErrorBorder:
+            OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(borderRadius ?? Get.height * 0.01)), borderSide: BorderSide(color: borderColor ?? AppColors.kcTransparent)),
+        errorBorder: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(borderRadius ?? Get.height * 0.01)), borderSide: BorderSide(color: borderColor ?? AppColors.kcTransparent)),
+        enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(borderRadius ?? Get.height * 0.01)), borderSide: BorderSide(color: borderColor ?? AppColors.kcTransparent)),
+        focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(borderRadius ?? Get.height * 0.01)), borderSide: BorderSide(color: borderColor ?? AppColors.kcTransparent)),
+        border: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(borderRadius ?? Get.height * 0.01)), borderSide: BorderSide(color: borderColor ?? AppColors.kcTransparent)),
+        suffixIconConstraints: const BoxConstraints(maxWidth: 40, maxHeight: 50, minHeight: 50),
+        suffixIcon: suffixIconPath != null ? buildSuffixIcon() : const SizedBox(height: 35, width: 1),
+        prefixIconConstraints: const BoxConstraints(maxWidth: 60, maxHeight: 50, minHeight: 50),
+        prefixIcon: prefixIconPath != null ? buildPrefixIcon() : const SizedBox(height: 35, width: 10),
         errorMaxLines: 2,
         filled: true,
         errorText: (errorText != '') ? errorText : null,
         fillColor: fillColor ?? AppColors.kcCaptionLightGray.withOpacity(0.2),
         hintStyle: AppStyles.txt14sizeW500CaptionLightGray,
-        errorStyle:
-            AppStyles.txt10sizeWithW500.copyWith(color: AppColors.kcRed),
+        errorStyle: AppStyles.txt10sizeWithW500.copyWith(color: AppColors.kcRed),
         hintText: hintText);
   }
 
@@ -218,33 +185,20 @@ class AppTextField extends StatelessWidget {
         child: Container(
             padding: EdgeInsets.zero,
             child: Padding(
-                padding: EdgeInsets.only(
-                    right: alignEnd ?? false ? 0 : 0),
+                padding: EdgeInsets.only(right: alignEnd ?? false ? 0 : 0),
                 child: Row(
                     mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Container(
-                          padding: const EdgeInsets.only(left: 15),
-                          child: Image.asset(prefixIconPath!,
-                              height: 20, width: 20)),
-                      SizedBox(width: Get.width * 0.02)
-                    ]))));
+                    children: [Container(padding: const EdgeInsets.only(left: 15), child: Image.asset(prefixIconPath!, height: 20, width: 20)), SizedBox(width: Get.width * 0.02)]))));
   }
 
   buildSuffixIcon() {
     return InkWell(
         onTap: onSuffixIconTap,
         child: Padding(
-            padding: EdgeInsets.only(
-                top: 10, right: alignEnd ?? false ? 0 : 10, bottom: 8),
+            padding: EdgeInsets.only(top: 10, right: alignEnd ?? false ? 0 : 10, bottom: 8),
             child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 mainAxisSize: MainAxisSize.min,
-                children: [
-                  Image.asset(suffixIconPath!,
-                      fit: BoxFit.contain,
-                      height: suffixIconHeight ?? 20,
-                      width: suffixIconWidth ?? 20)
-                ])));
+                children: [Image.asset(suffixIconPath!, fit: BoxFit.contain, height: suffixIconHeight ?? 20, width: suffixIconWidth ?? 20)])));
   }
 }

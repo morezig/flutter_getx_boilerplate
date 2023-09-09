@@ -25,7 +25,7 @@
 
 import 'package:get/get.dart';
 
-import 'package:flutter_setup/src/views/authorization/splash/controllers/splash_controller.dart';
+import 'package:semaphore_web/src/views/authorization/splash/controllers/splash_controller.dart';
 
 class SplashBinding extends Bindings {
   @override

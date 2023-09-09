@@ -23,12 +23,11 @@
  *  Developed by Technource (https://www.technource.com)
  */
 
-import 'package:flutter_setup/global/app_localization/app_localization.dart';
+import 'package:semaphore_web/global/app_localization/app_localization.dart';
 
 ///Extensions on string can be added here
 extension TranslateString on String {
   String toTranslate() {
     return AppLocalizations().getText(this);
   }
-
 }

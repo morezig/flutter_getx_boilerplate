@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
-import 'package:flutter_setup/global/constant/resources/import_resources.dart';
-import 'package:flutter_setup/src/views/dashboard/model/bottom_navigation_item_model.dart';
+import 'package:semaphore_web/global/constant/resources/import_resources.dart';
+import 'package:semaphore_web/src/views/dashboard/model/bottom_navigation_item_model.dart';
 
 class BottomNavigationItemIcon extends StatelessWidget {
   final BottomNavigationItemModel bottomNavigationItemModel;

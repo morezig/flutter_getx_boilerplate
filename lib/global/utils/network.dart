@@ -24,9 +24,9 @@
  */
 
 import 'package:connectivity_plus/connectivity_plus.dart';
-import 'package:flutter_setup/global/constant/resources/resources.dart';
-import 'package:flutter_setup/global/utils/logger.dart';
-import 'package:flutter_setup/global/utils/utils.dart';
+import 'package:semaphore_web/global/constant/resources/resources.dart';
+import 'package:semaphore_web/global/utils/logger.dart';
+import 'package:semaphore_web/global/utils/utils.dart';
 import 'package:get/get_rx/src/rx_types/rx_types.dart';
 
 class Network {
@@ -44,8 +44,7 @@ class Network {
 
   Future<void> _updateConnectionStatus(ConnectivityResult result) async {
     Logger.logPrint("result_connectionStatus $result");
-    if (result == ConnectivityResult.mobile ||
-        result == ConnectivityResult.wifi) {
+    if (result == ConnectivityResult.mobile || result == ConnectivityResult.wifi) {
       isInternetConnected.value = true;
       Logger.logPrint("result_connectionStatus 26 $result");
     } else if (result == ConnectivityResult.none) {

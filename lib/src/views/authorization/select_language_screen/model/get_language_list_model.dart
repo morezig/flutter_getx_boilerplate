@@ -23,7 +23,7 @@
  *  Developed by Technource (https://www.technource.com)
  */
 
-import 'package:flutter_setup/global/utils/config.dart';
+import 'package:semaphore_web/global/utils/config.dart';
 
 class GetLanguageListModel {
   GetLanguageListModel({

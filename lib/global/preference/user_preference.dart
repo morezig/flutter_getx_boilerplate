@@ -23,9 +23,9 @@
  *  Developed by Technource (https://www.technource.com)
  */
 
-import 'package:flutter_setup/global/preference/session_keys.dart';
-import 'package:flutter_setup/global/utils/config.dart';
-import 'package:flutter_setup/src/routes/app_pages.dart';
+import 'package:semaphore_web/global/preference/session_keys.dart';
+import 'package:semaphore_web/global/utils/config.dart';
+import 'package:semaphore_web/src/routes/app_pages.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
@@ -50,8 +50,7 @@ class AppSession {
   }
 
   static String getSelectedLanguageId() {
-    return sessionData?.read(UserSessionDetail.kSelectedLanguageId) ??
-        Config.langCodeEn;
+    return sessionData?.read(UserSessionDetail.kSelectedLanguageId) ?? Config.langCodeEn;
   }
 
   static void setAccessToken(String? value) {
@@ -63,8 +62,7 @@ class AppSession {
   }
 
   static bool isAuthenticationDone() {
-    bool isAuthDone = AppSession.getAccessToken().isNotEmpty &&
-        AppSession.getAccessToken() != '';
+    bool isAuthDone = AppSession.getAccessToken().isNotEmpty && AppSession.getAccessToken() != '';
     if (isAuthDone) {
       return true;
     }

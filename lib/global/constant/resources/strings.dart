@@ -1,4 +1,4 @@
-import 'package:flutter_setup/global/extention/string_extensions.dart';
+import 'package:semaphore_web/global/extention/string_extensions.dart';
 
 /// All the text of the app will be defined here
 class AppStrings {

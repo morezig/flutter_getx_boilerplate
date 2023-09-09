@@ -23,11 +23,11 @@
  *  Developed by Technource (https://www.technource.com)
  */
 
-import 'package:flutter_setup/global/utils/config.dart';
-import 'package:flutter_setup/global/utils/logger.dart';
-import 'package:flutter_setup/global/utils/utils.dart';
-import 'package:flutter_setup/src/routes/app_pages.dart';
-import 'package:flutter_setup/src/views/setting_page/components/more_screen/model/more_menu_model.dart';
+import 'package:semaphore_web/global/utils/config.dart';
+import 'package:semaphore_web/global/utils/logger.dart';
+import 'package:semaphore_web/global/utils/utils.dart';
+import 'package:semaphore_web/src/routes/app_pages.dart';
+import 'package:semaphore_web/src/views/setting_page/components/more_screen/model/more_menu_model.dart';
 import 'package:get/get.dart';
 
 class MoreScreenController extends GetxController {

@@ -24,17 +24,17 @@
  */
 
 import 'package:flutter/material.dart';
-import 'package:flutter_setup/global/utils/config.dart';
-import 'package:flutter_setup/global/widgets/app_background.dart';
-import 'package:flutter_setup/global/widgets/app_button.dart';
+import 'package:semaphore_web/global/utils/config.dart';
+import 'package:semaphore_web/global/widgets/app_background.dart';
+import 'package:semaphore_web/global/widgets/app_button.dart';
 import 'package:get/get.dart';
-import 'package:flutter_setup/global/constant/resources/import_resources.dart';
-import 'package:flutter_setup/global/preference/user_preference.dart';
-import 'package:flutter_setup/global/utils/utils.dart';
-import 'package:flutter_setup/global/widgets/common_dropdown.dart';
-import 'package:flutter_setup/src/routes/app_pages.dart';
-import 'package:flutter_setup/src/views/authorization/select_language_screen/controller/select_language_controller.dart';
-import 'package:flutter_setup/src/views/authorization/select_language_screen/model/get_language_list_model.dart';
+import 'package:semaphore_web/global/constant/resources/import_resources.dart';
+import 'package:semaphore_web/global/preference/user_preference.dart';
+import 'package:semaphore_web/global/utils/utils.dart';
+import 'package:semaphore_web/global/widgets/common_dropdown.dart';
+import 'package:semaphore_web/src/routes/app_pages.dart';
+import 'package:semaphore_web/src/views/authorization/select_language_screen/controller/select_language_controller.dart';
+import 'package:semaphore_web/src/views/authorization/select_language_screen/model/get_language_list_model.dart';
 
 class SelectLanguageScreenView extends GetView<SelectLanguageController> {
   const SelectLanguageScreenView({super.key});
@@ -50,9 +50,7 @@ class SelectLanguageScreenView extends GetView<SelectLanguageController> {
 
   languageBodyView() {
     return Padding(
-        padding: const EdgeInsets.symmetric(
-            vertical: ksWidgetVerticalSpace15,
-            horizontal: ksWidgetHorizontalSpace15),
+        padding: const EdgeInsets.symmetric(vertical: ksWidgetVerticalSpace15, horizontal: ksWidgetHorizontalSpace15),
         child: Column(mainAxisAlignment: MainAxisAlignment.end, children: [
           buildLanguageDropDown(),
           const SizedBox(height: ksBodyVerticalSpace30),
@@ -81,22 +79,16 @@ class SelectLanguageScreenView extends GetView<SelectLanguageController> {
           onChanged: (data) {
             controller.selectedLanguage.value = data!;
             controller.selectedLanguageName.value = data.langName.toString();
-            Config.setLocale.value =
-                controller.selectedLanguage.value.langCode.toString();
+            Config.setLocale.value = controller.selectedLanguage.value.langCode.toString();
             AppSession.setSelectedLanguageId(Config.setLocale.value);
             Get.updateLocale(Locale(Config.setLocale.value));
             controller.update();
           },
           items: controller.languageList.map((LanguageData genre) {
-            return DropdownMenuItem<LanguageData>(
-                value: genre,
-                child: Text(genre.langName!,
-                    style: AppStyles.txt14sizeW500CaptionLightGray));
+            return DropdownMenuItem<LanguageData>(value: genre, child: Text(genre.langName!, style: AppStyles.txt14sizeW500CaptionLightGray));
           }).toList(),
           hintText: R.strings.hnSelectLanguage,
-          value: controller.selectedLanguage.value.langId != '-1'
-              ? controller.selectedLanguage.value
-              : null))
+          value: controller.selectedLanguage.value.langId != '-1' ? controller.selectedLanguage.value : null))
     ]);
   }
 }

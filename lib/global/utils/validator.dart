@@ -25,19 +25,16 @@
 
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:flutter_setup/global/constant/resources/resources.dart';
+import 'package:semaphore_web/global/constant/resources/resources.dart';
 
 class Validator {
-  static RegExp alphaNumberRic =
-      RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$');
+  static RegExp alphaNumberRic = RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$');
 
   static List<TextInputFormatter>? nameFormatterWithSpecialChar = [
     FilteringTextInputFormatter.allow(RegExp('[a-zA-Z0-9@#\$%^&*()_-]')),
   ];
 
-  static List<TextInputFormatter>? mobileNumberFormatter = [
-    FilteringTextInputFormatter.allow(RegExp('[0-9-_+]'))
-  ];
+  static List<TextInputFormatter>? mobileNumberFormatter = [FilteringTextInputFormatter.allow(RegExp('[0-9-_+]'))];
 
   static String? passwordValid(String? v) {
     if (v!.isEmpty) {
@@ -114,7 +111,6 @@ class Validator {
       return null;
     }
   }
-
 
   static String? validHomeAddress(String? v) {
     if (v!.toString().trim().isEmpty) {

@@ -25,49 +25,42 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_setup/global/constant/resources/assets.dart';
-import 'package:flutter_setup/global/constant/resources/colors.dart';
-import 'package:flutter_setup/global/constant/resources/resources.dart';
-import 'package:flutter_setup/global/constant/resources/styles.dart';
-import 'package:flutter_setup/global/utils/utils.dart';
-import 'package:flutter_setup/global/utils/validator.dart';
-import 'package:flutter_setup/global/widgets/app_button.dart';
-import 'package:flutter_setup/global/widgets/common_appbar_white.dart';
-import 'package:flutter_setup/global/widgets/custom_text_field.dart';
-import 'package:flutter_setup/global/widgets/user_profile_view.dart';
-import 'package:flutter_setup/src/routes/app_pages.dart';
+import 'package:semaphore_web/global/constant/resources/assets.dart';
+import 'package:semaphore_web/global/constant/resources/colors.dart';
+import 'package:semaphore_web/global/constant/resources/resources.dart';
+import 'package:semaphore_web/global/constant/resources/styles.dart';
+import 'package:semaphore_web/global/utils/utils.dart';
+import 'package:semaphore_web/global/utils/validator.dart';
+import 'package:semaphore_web/global/widgets/app_button.dart';
+import 'package:semaphore_web/global/widgets/common_appbar_white.dart';
+import 'package:semaphore_web/global/widgets/custom_text_field.dart';
+import 'package:semaphore_web/global/widgets/user_profile_view.dart';
+import 'package:semaphore_web/src/routes/app_pages.dart';
 import 'package:get/get.dart';
 import 'controller/edit_profile_controller.dart';
 
 var _ksWidgetVerticalSpace = Get.height * 0.02;
 
 class EditProfileView extends GetView<EditProfileController> {
-  final EditProfileController editProfileController =
-      Get.put(EditProfileController());
+  final EditProfileController editProfileController = Get.put(EditProfileController());
 
   EditProfileView({super.key});
 
   @override
   Widget build(BuildContext context) {
     controller.editProfileFormKey = GlobalKey<FormState>();
-    return WillPopScope(
-        onWillPop: controller.onWillPopTap,
-        child: Scaffold(
-            appBar: buildCommonWhiteAppbar(),
-            body: SingleChildScrollView(child: buildEditView())));
+    return WillPopScope(onWillPop: controller.onWillPopTap, child: Scaffold(appBar: buildCommonWhiteAppbar(), body: SingleChildScrollView(child: buildEditView())));
   }
 
   Container buildEditView() {
     return Container(
         color: AppColors.kcWhite,
         child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: ksBodyHorizontalSpace15,vertical: ksBodyVerticalSpace15),
+            padding: const EdgeInsets.symmetric(horizontal: ksBodyHorizontalSpace15, vertical: ksBodyVerticalSpace15),
             child: Obx(() => Form(
                 key: controller.editProfileFormKey,
                 child: Column(children: [
-                  UserProfile(
-                      selectedFile: controller.selectedFile,
-                      networkImg: controller.networkImg),
+                  UserProfile(selectedFile: controller.selectedFile, networkImg: controller.networkImg),
                   SizedBox(height: Get.height * 0.03),
                   buildNameField(),
                   SizedBox(height: _ksWidgetVerticalSpace),
@@ -88,13 +81,7 @@ class EditProfileView extends GetView<EditProfileController> {
 
   Row buildNameField() {
     return Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          buildFirstNameField(),
-          SizedBox(width: Get.width * 0.05),
-          buildLastNameField()
-        ]);
+        mainAxisAlignment: MainAxisAlignment.spaceBetween, crossAxisAlignment: CrossAxisAlignment.start, children: [buildFirstNameField(), SizedBox(width: Get.width * 0.05), buildLastNameField()]);
   }
 
   CommonWhiteAppbar buildCommonWhiteAppbar() {
@@ -107,9 +94,7 @@ class EditProfileView extends GetView<EditProfileController> {
         });
   }
 
-  buildAdditionalTextField(
-      {required TextEditingController textController,
-      required String hintText}) {
+  buildAdditionalTextField({required TextEditingController textController, required String hintText}) {
     return AppTextField(
         cursorcolor: AppColors.kcBlack,
         textStyle: AppStyles.txt14sizeW500CaptionLightGray,
@@ -240,7 +225,7 @@ class EditProfileView extends GetView<EditProfileController> {
   buildAddressField() {
     return Padding(
         padding: const EdgeInsets.only(right: 2),
-        child:  AppTextField(
+        child: AppTextField(
             maxLines: 1,
             fillColor: AppColors.kcInputFilled,
             textEditingController: controller.homeAddressController,
@@ -281,7 +266,7 @@ class EditProfileView extends GetView<EditProfileController> {
 
   buildButton() {
     return AppButton(
-        btnText:  R.strings.ksEditProfileButtonText,
+        btnText: R.strings.ksEditProfileButtonText,
         onTap: () {
           if (controller.editProfileFormKey.currentState!.validate()) {
             Get.back();

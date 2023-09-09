@@ -25,14 +25,14 @@
 
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_setup/global/widgets/app_button.dart';
-import 'package:flutter_setup/global/widgets/common_logo.dart';
+import 'package:semaphore_web/global/widgets/app_button.dart';
+import 'package:semaphore_web/global/widgets/common_logo.dart';
 import 'package:get/get.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
-import 'package:flutter_setup/global/constant/resources/import_resources.dart';
-import 'package:flutter_setup/global/utils/validator.dart';
-import 'package:flutter_setup/global/widgets/vector_description_widget.dart';
-import 'package:flutter_setup/src/views/authorization/otp_screen/controller/otp_controller.dart';
+import 'package:semaphore_web/global/constant/resources/import_resources.dart';
+import 'package:semaphore_web/global/utils/validator.dart';
+import 'package:semaphore_web/global/widgets/vector_description_widget.dart';
+import 'package:semaphore_web/src/views/authorization/otp_screen/controller/otp_controller.dart';
 
 const ksBodyVerticalSpace10 = 10.0;
 const ksWidgetVerticalSpace15 = 15.0;
@@ -52,13 +52,9 @@ class OtpScreenView extends GetView<OtpScreenController> {
                   child: Form(
                       key: controller.otpFormKey,
                       child: Container(
-                          margin: const EdgeInsets.symmetric(
-                              vertical: ksBodyVerticalSpace15,
-                              horizontal: ksBodyHorizontalSpace15),
+                          margin: const EdgeInsets.symmetric(vertical: ksBodyVerticalSpace15, horizontal: ksBodyHorizontalSpace15),
                           child: Column(children: [
-                            VectorDescriptionWidget(
-                                description: R.strings.ksWeHaveSentAn,
-                                imagePath: AppAssets.otpScreen),
+                            VectorDescriptionWidget(description: R.strings.ksWeHaveSentAn, imagePath: AppAssets.otpScreen),
                             const SizedBox(height: ksBodyVerticalSpace10),
                             buildEnterCode(),
                             const SizedBox(height: ksBodyVerticalSpace10),
@@ -75,18 +71,11 @@ class OtpScreenView extends GetView<OtpScreenController> {
   }
 
   buildCodeSentText() {
-    return Container(
-        alignment: Alignment.topLeft,
-        child: Text(R.strings.ksCodeHasBeenSend,
-            style: AppStyles.txt14sizeW500CaptionLightGray));
+    return Container(alignment: Alignment.topLeft, child: Text(R.strings.ksCodeHasBeenSend, style: AppStyles.txt14sizeW500CaptionLightGray));
   }
 
   buildEnterCode() {
-    return Container(
-        alignment: Alignment.topLeft,
-        child: Text(R.strings.ksEnterTheCode,
-            style: AppStyles.txt18sizeWithW600
-                .copyWith(color: AppColors.kcWhite)));
+    return Container(alignment: Alignment.topLeft, child: Text(R.strings.ksEnterTheCode, style: AppStyles.txt18sizeWithW600.copyWith(color: AppColors.kcWhite)));
   }
 
   buildResendOtpText() {
@@ -94,12 +83,7 @@ class OtpScreenView extends GetView<OtpScreenController> {
         text: TextSpan(
             text: R.strings.ksDontReceiveTheOtp,
             style: AppStyles.txt14sizeW600ckcWhite,
-            children: <TextSpan>[
-          TextSpan(
-              text: R.strings.ksResendOtp,
-              style: AppStyles.txt14sizeWithW600Underline,
-              recognizer: TapGestureRecognizer()..onTap = () {})
-        ]));
+            children: <TextSpan>[TextSpan(text: R.strings.ksResendOtp, style: AppStyles.txt14sizeWithW600Underline, recognizer: TapGestureRecognizer()..onTap = () {})]));
   }
 
   buildButton() {

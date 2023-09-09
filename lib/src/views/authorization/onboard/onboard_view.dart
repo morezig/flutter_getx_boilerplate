@@ -24,13 +24,13 @@
  */
 
 import 'package:flutter/material.dart';
-import 'package:flutter_setup/global/widgets/common_logo.dart';
-import 'package:flutter_setup/src/views/authorization/onboard/components/dot_indicator_item.dart';
+import 'package:semaphore_web/global/widgets/common_logo.dart';
+import 'package:semaphore_web/src/views/authorization/onboard/components/dot_indicator_item.dart';
 import 'package:get/get.dart';
 
-import 'package:flutter_setup/global/constant/resources/import_resources.dart';
-import 'package:flutter_setup/src/views/authorization/onboard/components/page_view_item.dart';
-import 'package:flutter_setup/src/views/authorization/onboard/controller/onboard_controller.dart';
+import 'package:semaphore_web/global/constant/resources/import_resources.dart';
+import 'package:semaphore_web/src/views/authorization/onboard/components/page_view_item.dart';
+import 'package:semaphore_web/src/views/authorization/onboard/controller/onboard_controller.dart';
 
 const ksWidgetHorizontalSpace15 = 15.0;
 const ksWidgetVerticalSpace15 = 15.0;
@@ -47,15 +47,8 @@ class OnBoardView extends GetView<OnBoardController> {
             child: ColoredBox(
                 color: AppColors.kcPrimaryColor,
                 child: Container(
-                    margin: const EdgeInsets.symmetric(
-                        horizontal: ksBodyHorizontalSpace15,
-                        vertical: ksBodyVerticalSpace15),
-                    child: Column(children: [
-                      pageViewWidget(),
-                      dotIndicatorWidget(),
-                      const SizedBox(height: ksWidgetVerticalSpace15),
-                      const CommonLogo()
-                    ])))));
+                    margin: const EdgeInsets.symmetric(horizontal: ksBodyHorizontalSpace15, vertical: ksBodyVerticalSpace15),
+                    child: Column(children: [pageViewWidget(), dotIndicatorWidget(), const SizedBox(height: ksWidgetVerticalSpace15), const CommonLogo()])))));
   }
 
   pageViewWidget() {
@@ -68,8 +61,7 @@ class OnBoardView extends GetView<OnBoardController> {
               },
               itemCount: controller.onboardItemList.length,
               itemBuilder: (context, index) {
-                return PageViewItem(
-                    onBoardItemModel: controller.onboardItemList[index]);
+                return PageViewItem(onBoardItemModel: controller.onboardItemList[index]);
               }));
     });
   }
@@ -85,12 +77,8 @@ class OnBoardView extends GetView<OnBoardController> {
                 itemCount: controller.onboardItemList.length,
                 itemBuilder: (context, index) {
                   return DotIndicatorItem(
-                      innerDotColor: controller.selectedIndicator.value == index
-                          ? AppColors.kcWhite
-                          : AppColors.kcCaptionLightGray,
-                      outerDotColor: controller.selectedIndicator.value == index
-                          ? AppColors.kcCaptionLightGray.withOpacity(0.3)
-                          : AppColors.kcTransparent);
+                      innerDotColor: controller.selectedIndicator.value == index ? AppColors.kcWhite : AppColors.kcCaptionLightGray,
+                      outerDotColor: controller.selectedIndicator.value == index ? AppColors.kcCaptionLightGray.withOpacity(0.3) : AppColors.kcTransparent);
                 })),
         const Spacer(),
         skipButton(),
@@ -104,28 +92,15 @@ class OnBoardView extends GetView<OnBoardController> {
     return InkWell(
         onTap: () => controller.onNextTap(),
         child: Container(
-            padding: const EdgeInsets.symmetric(
-                horizontal: ksWidgetHorizontalSpace15,
-                vertical: ksWidgetVerticalSpace15),
-            decoration: BoxDecoration(
-                borderRadius:
-                    BorderRadius.all(Radius.circular(Get.width * 0.2)),
-                color: AppColors.kcCaptionLightGray.withOpacity(0.2)),
-            child: Center(
-                child: Text(R.strings.ksNext,
-                    style: AppStyles.txt18sizeWithW600
-                        .copyWith(color: AppColors.kcWhite)))));
+            padding: const EdgeInsets.symmetric(horizontal: ksWidgetHorizontalSpace15, vertical: ksWidgetVerticalSpace15),
+            decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(Get.width * 0.2)), color: AppColors.kcCaptionLightGray.withOpacity(0.2)),
+            child: Center(child: Text(R.strings.ksNext, style: AppStyles.txt18sizeWithW600.copyWith(color: AppColors.kcWhite)))));
   }
 
   Visibility skipButton() {
     return Visibility(
-      visible: controller.selectedIndicator.value !=
-          controller.onboardItemList.length - 1,
-      child: InkWell(
-          child: Text(R.strings.ksSkip,
-              style: AppStyles.txt14sizeW600ckcWhite
-                  .copyWith(color: AppColors.kcYellow)),
-          onTap: () => controller.skipNextTapped()),
+      visible: controller.selectedIndicator.value != controller.onboardItemList.length - 1,
+      child: InkWell(child: Text(R.strings.ksSkip, style: AppStyles.txt14sizeW600ckcWhite.copyWith(color: AppColors.kcYellow)), onTap: () => controller.skipNextTapped()),
     );
   }
 }

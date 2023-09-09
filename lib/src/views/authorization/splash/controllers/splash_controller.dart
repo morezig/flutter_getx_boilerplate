@@ -23,10 +23,10 @@
  *  Developed by Technource (https://www.technource.com)
  */
 
-import 'package:flutter_setup/src/routes/app_pages.dart';
+import 'package:semaphore_web/src/routes/app_pages.dart';
 import 'package:get/get.dart';
 
-import 'package:flutter_setup/global/preference/user_preference.dart';
+import 'package:semaphore_web/global/preference/user_preference.dart';
 
 class SplashController extends GetxController {
   static SplashController get to => Get.find();

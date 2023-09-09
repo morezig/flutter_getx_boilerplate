@@ -24,7 +24,7 @@
  */
 
 import 'package:flutter/material.dart';
-import 'package:flutter_setup/global/constant/resources/assets.dart';
+import 'package:semaphore_web/global/constant/resources/assets.dart';
 import 'package:get/get.dart';
 import 'package:loading_indicator/loading_indicator.dart';
 import '../constant/resources/colors.dart';
@@ -34,16 +34,11 @@ import '../constant/resources/colors.dart';
 class BuildAvtarPlaceHolder extends StatelessWidget {
   final double width;
   final double height;
-  const BuildAvtarPlaceHolder(
-      {Key? key, required this.width, required this.height})
-      : super(key: key);
+  const BuildAvtarPlaceHolder({Key? key, required this.width, required this.height}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-        width: width,
-        height: height,
-        child: Image.asset(AppAssets.defaultAvatar, fit: BoxFit.cover));
+    return SizedBox(width: width, height: height, child: Image.asset(AppAssets.defaultAvatar, fit: BoxFit.cover));
   }
 }
 
@@ -68,8 +63,6 @@ class BuildGreyDivider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Divider(
-        color: AppColors.kcCaptionLightGray.withOpacity(opacity ?? 1),
-        thickness: 2);
+    return Divider(color: AppColors.kcCaptionLightGray.withOpacity(opacity ?? 1), thickness: 2);
   }
 }

@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_setup/global/utils/config.dart';
+import 'package:semaphore_web/global/utils/config.dart';
 import 'package:get/get.dart';
 
 RxMap language = {}.obs;

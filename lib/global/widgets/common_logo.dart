@@ -25,7 +25,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'package:flutter_setup/global/constant/resources/import_resources.dart';
+import 'package:semaphore_web/global/constant/resources/import_resources.dart';
 
 class CommonLogo extends StatelessWidget {
   const CommonLogo({Key? key}) : super(key: key);
@@ -33,8 +33,7 @@ class CommonLogo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Image.asset(AppAssets.appLogo,
-          height: Get.height * 0.1, width: Get.width * 0.6),
+      child: Image.asset(AppAssets.appLogo, height: Get.height * 0.1, width: Get.width * 0.6),
     );
   }
 }

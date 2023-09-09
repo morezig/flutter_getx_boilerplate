@@ -23,14 +23,14 @@
  *  Developed by Technource (https://www.technource.com)
  */
 
-import 'package:flutter_setup/global/extention/string_extensions.dart';
-import 'package:flutter_setup/global/utils/logger.dart';
+import 'package:semaphore_web/global/extention/string_extensions.dart';
+import 'package:semaphore_web/global/utils/logger.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_setup/global/constant/resources/colors.dart';
-import 'package:flutter_setup/global/constant/resources/resources.dart';
-import 'package:flutter_setup/global/utils/utils.dart';
-import 'package:flutter_setup/global/component/country_item.dart';
+import 'package:semaphore_web/global/constant/resources/colors.dart';
+import 'package:semaphore_web/global/constant/resources/resources.dart';
+import 'package:semaphore_web/global/utils/utils.dart';
+import 'package:semaphore_web/global/component/country_item.dart';
 
 class CountryCodePicker {
   static var countryList = <CountryItem>[].obs;
@@ -41,9 +41,7 @@ class CountryCodePicker {
   static RxBool isSearch = false.obs;
   static ValueChanged<dynamic>? onItemClick;
 
-  static void openCountryBottomSheet(
-      {required RxList<CountryItem> countrys,
-      ValueChanged<dynamic>? onSelect}) {
+  static void openCountryBottomSheet({required RxList<CountryItem> countrys, ValueChanged<dynamic>? onSelect}) {
     searchController.clear();
     searchResult.clear();
     onItemClick = onSelect;
@@ -51,104 +49,65 @@ class CountryCodePicker {
     Get.bottomSheet(
         FractionallySizedBox(
             heightFactor: 0.9,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Container(
-                    padding: const EdgeInsets.symmetric(vertical: 15),
-                    decoration: BoxDecoration(
-                        color: Get.theme.colorScheme.secondary,
-                        borderRadius: const BorderRadius.only(
-                            topLeft: Radius.circular(15),
-                            topRight: Radius.circular(15))),
-                    child: Center(
-                        child: Text(R.strings.ksSelectCountryCode,
-                            style: Get.textTheme.headlineSmall!
-                                .merge(const TextStyle(color: Colors.white))))),
-                Card(
-                    elevation: 5,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15.0),
-                    ),
-                    margin: const EdgeInsets.all(15),
-                    child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Expanded(
-                              child: ListTile(
-                                  leading: Icon(Icons.search,
-                                      color: Get.theme.primaryColor),
-                                  horizontalTitleGap: 0.0,
-                                  title: TextField(
-                                      cursorColor: Get.theme.primaryColor,
-                                      controller: searchController,
-                                      focusNode: searchFocusNode,
-                                      style: Get.textTheme.bodyMedium!.merge(
-                                          TextStyle(
-                                              color: Get.theme.primaryColor)),
-                                      decoration: InputDecoration(
-                                          hintText: R.strings.ksSearch,
-                                          border: InputBorder.none,
-                                          hintStyle: Get.textTheme.bodyMedium!
-                                              .merge(TextStyle(
-                                                  color:
-                                                      Get.theme.primaryColor))),
-                                      onChanged: onSearchTextChanged),
-                                  dense: true))
-                        ])),
-                Expanded(
-                    child: Obx(() => searchResult.isNotEmpty ||
-                            countryList.isNotEmpty
-                        ? searchResult.isNotEmpty
-                            ? Padding(
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: 20.0),
-                                child: ListView.separated(
-                                    separatorBuilder:
-                                        (BuildContext context, int index) {
-                                      return Divider(
-                                          thickness: 1,
-                                          color: AppColors.kcPrimaryColor
-                                              .withOpacity(0.2));
-                                    },
-                                    itemCount: searchResult.length,
-                                    shrinkWrap: true,
-                                    physics:
-                                        const AlwaysScrollableScrollPhysics(),
-                                    itemBuilder:
-                                        (BuildContext context, int index) {
-                                      return countryItem(
-                                          country: searchResult[index]);
-                                    })
-                              )
-                            : Padding(
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: 20.0),
-                                child: ListView.separated(
-                                    separatorBuilder:
-                                        (BuildContext context, int index) {
-                                      return Divider(
-                                          thickness: 1,
-                                          color: AppColors.kcPrimaryColor
-                                              .withOpacity(0.2));
-                                    },
-                                    shrinkWrap: true,
-                                    physics:
-                                        const AlwaysScrollableScrollPhysics(),
-                                    itemCount: countryList.length,
-                                    itemBuilder:
-                                        (BuildContext context, int index) {
-                                      return countryItem(
-                                          country: countryList[index]);
-                                    }))
-                        : Center(child: Text(R.strings.ksNoDataFound))))
-              ]
-            )),
+            child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              Container(
+                  padding: const EdgeInsets.symmetric(vertical: 15),
+                  decoration: BoxDecoration(color: Get.theme.colorScheme.secondary, borderRadius: const BorderRadius.only(topLeft: Radius.circular(15), topRight: Radius.circular(15))),
+                  child: Center(child: Text(R.strings.ksSelectCountryCode, style: Get.textTheme.headlineSmall!.merge(const TextStyle(color: Colors.white))))),
+              Card(
+                  elevation: 5,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15.0),
+                  ),
+                  margin: const EdgeInsets.all(15),
+                  child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                    Expanded(
+                        child: ListTile(
+                            leading: Icon(Icons.search, color: Get.theme.primaryColor),
+                            horizontalTitleGap: 0.0,
+                            title: TextField(
+                                cursorColor: Get.theme.primaryColor,
+                                controller: searchController,
+                                focusNode: searchFocusNode,
+                                style: Get.textTheme.bodyMedium!.merge(TextStyle(color: Get.theme.primaryColor)),
+                                decoration:
+                                    InputDecoration(hintText: R.strings.ksSearch, border: InputBorder.none, hintStyle: Get.textTheme.bodyMedium!.merge(TextStyle(color: Get.theme.primaryColor))),
+                                onChanged: onSearchTextChanged),
+                            dense: true))
+                  ])),
+              Expanded(
+                  child: Obx(() => searchResult.isNotEmpty || countryList.isNotEmpty
+                      ? searchResult.isNotEmpty
+                          ? Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                              child: ListView.separated(
+                                  separatorBuilder: (BuildContext context, int index) {
+                                    return Divider(thickness: 1, color: AppColors.kcPrimaryColor.withOpacity(0.2));
+                                  },
+                                  itemCount: searchResult.length,
+                                  shrinkWrap: true,
+                                  physics: const AlwaysScrollableScrollPhysics(),
+                                  itemBuilder: (BuildContext context, int index) {
+                                    return countryItem(country: searchResult[index]);
+                                  }))
+                          : Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                              child: ListView.separated(
+                                  separatorBuilder: (BuildContext context, int index) {
+                                    return Divider(thickness: 1, color: AppColors.kcPrimaryColor.withOpacity(0.2));
+                                  },
+                                  shrinkWrap: true,
+                                  physics: const AlwaysScrollableScrollPhysics(),
+                                  itemCount: countryList.length,
+                                  itemBuilder: (BuildContext context, int index) {
+                                    return countryItem(country: countryList[index]);
+                                  }))
+                      : Center(child: Text(R.strings.ksNoDataFound))))
+            ])),
         elevation: 20.0,
         isScrollControlled: true,
         enableDrag: true,
-        backgroundColor:
-            Get.isDarkMode ? Get.theme.colorScheme.background : Colors.white,
+        backgroundColor: Get.isDarkMode ? Get.theme.colorScheme.background : Colors.white,
         shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.only(
           topLeft: Radius.circular(15.0),
@@ -167,10 +126,7 @@ class CountryCodePicker {
 
     for (var country in countryList) {
       if (country.name!.toLowerCase().contains(text.toLowerCase()) ||
-          country.phoneCode!
-              .toString()
-              .toLowerCase()
-              .contains(text.toLowerCase()) ||
+          country.phoneCode!.toString().toLowerCase().contains(text.toLowerCase()) ||
           country.code!.toLowerCase().contains(text.toLowerCase())) {
         searchResult.add(country);
       }
@@ -192,8 +148,7 @@ class CountryItemView extends StatelessWidget {
   final CountryItem country;
   final GestureTapCallback? onTap;
 
-  const CountryItemView({Key? key, required this.country, required this.onTap})
-      : super(key: key);
+  const CountryItemView({Key? key, required this.country, required this.onTap}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -208,16 +163,8 @@ class CountryItemView extends StatelessWidget {
                     child: Container(
                         height: 30,
                         width: 50,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(5),
-                            border: Border.all(
-                                color: AppColors.kcLightGray, width: 0.2)),
-                        child: SizedBox(
-                            width: 50,
-                            height: 30,
-                            child: Center(
-                                child: Icon(Icons.outlined_flag_sharp,
-                                    color: Colors.red.withOpacity(0.7)))))),
+                        decoration: BoxDecoration(borderRadius: BorderRadius.circular(5), border: Border.all(color: AppColors.kcLightGray, width: 0.2)),
+                        child: SizedBox(width: 50, height: 30, child: Center(child: Icon(Icons.outlined_flag_sharp, color: Colors.red.withOpacity(0.7)))))),
                 Expanded(
                     child: Row(children: [
                   Text('+ ${country.phoneCode!} - ',
@@ -225,10 +172,7 @@ class CountryItemView extends StatelessWidget {
                         fontSize: 14,
                         fontWeight: FontWeight.w500,
                       )),
-                  Expanded(
-                      child: Text('${country.name!} (${country.code!}) ',
-                          style: const TextStyle(
-                              fontSize: 14, fontWeight: FontWeight.w400)))
+                  Expanded(child: Text('${country.name!} (${country.code!}) ', style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w400)))
                 ]))
               ])
             ])));

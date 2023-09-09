@@ -23,7 +23,7 @@
  *  Developed by Technource (https://www.technource.com)
  */
 import 'package:flutter/material.dart';
-import 'package:flutter_setup/global/constant/resources/colors.dart';
+import 'package:semaphore_web/global/constant/resources/colors.dart';
 import 'package:get/get.dart';
 import '../../../../../global/constant/resources/resources.dart';
 import '../../../../../global/widgets/common_appbar_white.dart';
@@ -38,11 +38,7 @@ class MoreScreenView extends GetView<MoreScreenController> {
     return Scaffold(
         backgroundColor: AppColors.kcWhite,
         appBar: buildCommonWhiteAppbar(),
-        body: SafeArea(
-            child: Container(
-                margin: const EdgeInsets.symmetric(
-                    horizontal: ksBodyHorizontalSpace15),
-                child: buildMoreScreenView())));
+        body: SafeArea(child: Container(margin: const EdgeInsets.symmetric(horizontal: ksBodyHorizontalSpace15), child: buildMoreScreenView())));
   }
 
   buildMoreScreenView() {
@@ -52,8 +48,7 @@ class MoreScreenView extends GetView<MoreScreenController> {
           return MoreScreenListItem(
               menuItem: controller.moreMenuList[index],
               onTap: () {
-                controller.selectMoreScreenItem(
-                    item: controller.moreMenuList[index]);
+                controller.selectMoreScreenItem(item: controller.moreMenuList[index]);
               });
         }));
   }

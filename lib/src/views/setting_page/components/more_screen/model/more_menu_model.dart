@@ -23,7 +23,7 @@
  *  Developed by Technource (https://www.technource.com)
  */
 
-import 'package:flutter_setup/global/constant/resources/resources.dart';
+import 'package:semaphore_web/global/constant/resources/resources.dart';
 
 class MoreMenuModel {
   String title;

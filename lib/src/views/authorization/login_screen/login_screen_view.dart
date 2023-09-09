@@ -25,14 +25,14 @@
 
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_setup/global/utils/validator.dart';
-import 'package:flutter_setup/global/widgets/app_button.dart';
-import 'package:flutter_setup/global/widgets/common_logo.dart';
-import 'package:flutter_setup/src/routes/app_pages.dart';
+import 'package:semaphore_web/global/utils/validator.dart';
+import 'package:semaphore_web/global/widgets/app_button.dart';
+import 'package:semaphore_web/global/widgets/common_logo.dart';
+import 'package:semaphore_web/src/routes/app_pages.dart';
 import 'package:get/get.dart';
-import 'package:flutter_setup/global/constant/resources/import_resources.dart';
-import 'package:flutter_setup/global/widgets/custom_text_field.dart';
-import 'package:flutter_setup/src/views/authorization/login_screen/controller/login_screen_controller.dart';
+import 'package:semaphore_web/global/constant/resources/import_resources.dart';
+import 'package:semaphore_web/global/widgets/custom_text_field.dart';
+import 'package:semaphore_web/src/views/authorization/login_screen/controller/login_screen_controller.dart';
 
 const ksHorizontalSpace15 = 15.0;
 const ksVerticalSpace15 = 15.0;

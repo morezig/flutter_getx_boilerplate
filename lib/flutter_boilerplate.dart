@@ -25,16 +25,16 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_setup/global/app_localization/app_localization.dart';
-import 'package:flutter_setup/global/preference/user_preference.dart';
-import 'package:flutter_setup/src/routes/app_pages.dart';
+import 'package:semaphore_web/global/app_localization/app_localization.dart';
+import 'package:semaphore_web/global/preference/user_preference.dart';
+import 'package:semaphore_web/src/routes/app_pages.dart';
 import 'package:get/get.dart';
 import 'package:overlay_support/overlay_support.dart';
-import 'package:flutter_setup/global/theme/light_theme.dart';
-import 'package:flutter_setup/global/utils/config.dart';
+import 'package:semaphore_web/global/theme/light_theme.dart';
+import 'package:semaphore_web/global/utils/config.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
-import 'package:flutter_setup/global/constant/resources/import_resources.dart';
+import 'package:semaphore_web/global/constant/resources/import_resources.dart';
 
 class FlutterBoilerPlateApp extends StatelessWidget {
   const FlutterBoilerPlateApp({super.key});
@@ -44,24 +44,12 @@ class FlutterBoilerPlateApp extends StatelessWidget {
     return OverlaySupport.global(
         child: AnnotatedRegion<SystemUiOverlayStyle>(
             value: const SystemUiOverlayStyle(
-                systemNavigationBarColor: AppColors.kcPrimaryColor,
-                statusBarColor: Colors.transparent,
-                statusBarIconBrightness: Brightness.light,
-                statusBarBrightness: Brightness.light),
+                systemNavigationBarColor: AppColors.kcPrimaryColor, statusBarColor: Colors.transparent, statusBarIconBrightness: Brightness.light, statusBarBrightness: Brightness.light),
             child: GetMaterialApp(
                 title: Config.appName,
                 locale: Locale(AppSession.getSelectedLanguageId()),
-                localizationsDelegates: const [
-                  AppLocalizationsDelegate(),
-                  GlobalMaterialLocalizations.delegate,
-                  GlobalWidgetsLocalizations.delegate,
-                  GlobalCupertinoLocalizations.delegate
-                ],
-                supportedLocales: [
-                  Locale(Config.langCodeEn, Config.langCountryCodeEn),
-                  Locale(Config.langCodeRu, Config.langCountryCodeRu),
-                  Locale(Config.langCodeFr, Config.langCountryCodeFr)
-                ],
+                localizationsDelegates: const [AppLocalizationsDelegate(), GlobalMaterialLocalizations.delegate, GlobalWidgetsLocalizations.delegate, GlobalCupertinoLocalizations.delegate],
+                supportedLocales: [Locale(Config.langCodeEn, Config.langCountryCodeEn), Locale(Config.langCodeRu, Config.langCountryCodeRu), Locale(Config.langCodeFr, Config.langCountryCodeFr)],
                 debugShowCheckedModeBanner: false,
                 theme: lightThemeData(context),
                 initialRoute: Routes.splash,

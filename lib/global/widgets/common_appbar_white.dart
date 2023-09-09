@@ -24,9 +24,9 @@
  */
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_setup/global/constant/resources/assets.dart';
-import 'package:flutter_setup/global/constant/resources/colors.dart';
-import 'package:flutter_setup/global/constant/resources/styles.dart';
+import 'package:semaphore_web/global/constant/resources/assets.dart';
+import 'package:semaphore_web/global/constant/resources/colors.dart';
+import 'package:semaphore_web/global/constant/resources/styles.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
@@ -68,12 +68,7 @@ class CommonWhiteAppbar extends StatelessWidget implements PreferredSizeWidget {
         elevation: elevation ?? 0,
         leadingWidth: Get.width * 0.09,
         automaticallyImplyLeading: false,
-        title: Text(title,
-            style: style ??
-                AppStyles.txt18sizeW600White.merge(const TextStyle(
-                    color: AppColors.kcPrimaryColor,
-                    fontWeight: FontWeight.w700)),
-            textAlign: TextAlign.center),
+        title: Text(title, style: style ?? AppStyles.txt18sizeW600White.merge(const TextStyle(color: AppColors.kcPrimaryColor, fontWeight: FontWeight.w700)), textAlign: TextAlign.center),
         backgroundColor: backgroundColor ?? AppColors.kcWhite,
         actions: actionWidgets,
         bottom: tabBar,
@@ -84,24 +79,14 @@ class CommonWhiteAppbar extends StatelessWidget implements PreferredSizeWidget {
                     () {
                       Get.back();
                     },
-                child: Padding(
-                    padding: EdgeInsets.only(left: Get.width * 0.05),
-                    child: SvgPicture.asset(AppAssets.icBack,
-                        color: isWhiteBack == true
-                            ? AppColors.kcWhite
-                            : AppColors.kcBlack))),
+                child: Padding(padding: EdgeInsets.only(left: Get.width * 0.05), child: SvgPicture.asset(AppAssets.icBack, color: isWhiteBack == true ? AppColors.kcWhite : AppColors.kcBlack))),
         centerTitle: true);
   }
 
   SystemUiOverlayStyle buildSystemUiOverlayStyle() {
-    return SystemUiOverlayStyle(
-        statusBarColor: statusBarColor ?? AppColors.kcWhite,
-        statusBarIconBrightness: Brightness.dark,
-        statusBarBrightness: Brightness.light);
+    return SystemUiOverlayStyle(statusBarColor: statusBarColor ?? AppColors.kcWhite, statusBarIconBrightness: Brightness.dark, statusBarBrightness: Brightness.light);
   }
 
   @override
-  Size get preferredSize => Size.fromHeight(height == null
-      ? appBar.preferredSize.height
-      : appBar.preferredSize.height * 2);
+  Size get preferredSize => Size.fromHeight(height == null ? appBar.preferredSize.height : appBar.preferredSize.height * 2);
 }

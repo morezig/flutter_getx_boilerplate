@@ -24,7 +24,7 @@
  */
 
 import 'package:flutter/material.dart';
-import 'package:flutter_setup/src/routes/app_pages.dart';
+import 'package:semaphore_web/src/routes/app_pages.dart';
 import 'package:get/get.dart';
 
 import '../../../../global/constant/resources/import_resources.dart';
@@ -36,8 +36,7 @@ class UserInfoWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        margin: const EdgeInsets.only(
-            top: ksWidgetVerticalSpace15, bottom: ksWidgetVerticalSpace15),
+        margin: const EdgeInsets.only(top: ksWidgetVerticalSpace15, bottom: ksWidgetVerticalSpace15),
         child: Row(children: [
           InkWell(
               onTap: () {},
@@ -46,9 +45,7 @@ class UserInfoWidget extends StatelessWidget {
                       'https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?w=740&t=st=1683006951~exp=1683007551~hmac=2fd06f517ef15e591196789f6c93eecdc5a3779af174d07919ce247af9b9fbe3',
                   backgroundColor: AppColors.kcTransparent)),
           const SizedBox(width: 5),
-          const Expanded(
-              child: Text('John Deo',
-                  style: AppStyles.txt14sizeW600ckcWhite, maxLines: 3)),
+          const Expanded(child: Text('John Deo', style: AppStyles.txt14sizeW600ckcWhite, maxLines: 3)),
           InkWell(
               onTap: () {
                 Get.toNamed(Routes.editProfileScreen);

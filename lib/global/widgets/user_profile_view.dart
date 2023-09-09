@@ -26,20 +26,18 @@
 // ignore: must_be_immutable
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:flutter_setup/global/constant/resources/assets.dart';
-import 'package:flutter_setup/global/utils/logger.dart';
-import 'package:flutter_setup/global/utils/utils.dart';
-import 'package:flutter_setup/global/widgets/common_widgets.dart';
-import 'package:flutter_setup/global/widgets/select_file.dart';
+import 'package:semaphore_web/global/constant/resources/assets.dart';
+import 'package:semaphore_web/global/utils/logger.dart';
+import 'package:semaphore_web/global/utils/utils.dart';
+import 'package:semaphore_web/global/widgets/common_widgets.dart';
+import 'package:semaphore_web/global/widgets/select_file.dart';
 import 'package:get/get.dart';
-
 
 class UserProfile extends StatelessWidget {
   Rx<File> selectedFile;
   RxString networkImg;
 
-  UserProfile({Key? key, required this.selectedFile, required this.networkImg})
-      : super(key: key);
+  UserProfile({Key? key, required this.selectedFile, required this.networkImg}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -79,10 +77,7 @@ class UserProfile extends StatelessWidget {
   buildDefaultImg() {
     return Padding(
         padding: const EdgeInsets.only(right: 4.0, top: 8),
-        child: ClipRRect(
-            borderRadius: BorderRadius.circular(180),
-            child: Image.asset(AppAssets.defaultAvatar,
-                width: Get.height * 0.16, height: Get.height * 0.16)));
+        child: ClipRRect(borderRadius: BorderRadius.circular(180), child: Image.asset(AppAssets.defaultAvatar, width: Get.height * 0.16, height: Get.height * 0.16)));
   }
 
   buildUrlImg() {
@@ -95,22 +90,13 @@ class UserProfile extends StatelessWidget {
                     width: Get.height * 0.16,
                     height: Get.height * 0.16,
                     fit: BoxFit.cover,
-                    errorBuilder: (context, url, error) =>
-                        BuildAvtarPlaceHolder(
-                            height: Get.height * 0.16,
-                            width: Get.height * 0.16))
-                : BuildAvtarPlaceHolder(
-                    height: Get.height * 0.16, width: Get.height * 0.16)));
+                    errorBuilder: (context, url, error) => BuildAvtarPlaceHolder(height: Get.height * 0.16, width: Get.height * 0.16))
+                : BuildAvtarPlaceHolder(height: Get.height * 0.16, width: Get.height * 0.16)));
   }
 
   buildSelectedImg() {
     return Padding(
         padding: const EdgeInsets.only(right: 12.0, top: 12),
-        child: ClipRRect(
-            borderRadius: BorderRadius.circular(180),
-            child: Image.file(selectedFile.value,
-                width: Get.height * 0.16,
-                height: Get.height * 0.16,
-                fit: BoxFit.cover)));
+        child: ClipRRect(borderRadius: BorderRadius.circular(180), child: Image.file(selectedFile.value, width: Get.height * 0.16, height: Get.height * 0.16, fit: BoxFit.cover)));
   }
 }

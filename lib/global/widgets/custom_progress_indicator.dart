@@ -27,8 +27,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:loading_indicator/loading_indicator.dart';
 
-import 'package:flutter_setup/global/constant/resources/import_resources.dart';
-
+import 'package:semaphore_web/global/constant/resources/import_resources.dart';
 
 class CustomProgressIndicatorWidget extends StatelessWidget {
   final double? height, width;
@@ -53,11 +52,6 @@ class CustomProgressIndicatorWidget extends StatelessWidget {
                     child: SizedBox(
                         height: height ?? Get.height * 0.2,
                         width: width ?? Get.width * 0.25,
-                        child: const LoadingIndicator(
-                            indicatorType: Indicator.ballSpinFadeLoader,
-                            colors: [
-                              AppColors.kcYellow,
-                              AppColors.kcPrimaryColor
-                            ]))))));
+                        child: const LoadingIndicator(indicatorType: Indicator.ballSpinFadeLoader, colors: [AppColors.kcYellow, AppColors.kcPrimaryColor]))))));
   }
 }

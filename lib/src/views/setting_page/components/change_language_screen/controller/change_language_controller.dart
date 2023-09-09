@@ -23,9 +23,9 @@
  *  Developed by Technource (https://www.technource.com)
  */
 import 'package:flutter/material.dart';
-import 'package:flutter_setup/global/preference/user_preference.dart';
-import 'package:flutter_setup/global/utils/config.dart';
-import 'package:flutter_setup/src/routes/app_pages.dart';
+import 'package:semaphore_web/global/preference/user_preference.dart';
+import 'package:semaphore_web/global/utils/config.dart';
+import 'package:semaphore_web/src/routes/app_pages.dart';
 import 'package:get/get.dart';
 import '../../../../authorization/select_language_screen/model/get_language_list_model.dart';
 
@@ -37,8 +37,7 @@ class ChangeLanguageController extends GetxController {
   void onInit() {
     super.onInit();
     languageList.addAll(getLanguages());
-    selectedLanguage = languageList.firstWhere(
-        (element) => element.langCode == AppSession.getSelectedLanguageId());
+    selectedLanguage = languageList.firstWhere((element) => element.langCode == AppSession.getSelectedLanguageId());
   }
 
   selectedLanguageOnTap({required LanguageData item}) async {

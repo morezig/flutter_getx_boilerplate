@@ -23,8 +23,8 @@
  *  Developed by Technource (https://www.technource.com)
  */
 
-import 'package:flutter_setup/global/constant/resources/resources.dart';
-import 'package:flutter_setup/global/utils/config.dart';
+import 'package:semaphore_web/global/constant/resources/resources.dart';
+import 'package:semaphore_web/global/utils/config.dart';
 import 'package:get/get.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
@@ -50,11 +50,9 @@ class WebPagesController extends GetxController {
 
   getTitleOrUrl(bool isUrl) {
     var titleMap = {
-      Config.cmsPrivacyPolicy:
-          isUrl ? Config.privacyPolicyUrl : R.strings.ksPrivacyPolicy,
+      Config.cmsPrivacyPolicy: isUrl ? Config.privacyPolicyUrl : R.strings.ksPrivacyPolicy,
       Config.cmsAboutUsUrl: isUrl ? Config.aboutUsUrl : R.strings.ksAboutUs,
-      Config.cmsTermsCondition:
-          isUrl ? Config.termsAndCondition : R.strings.ksTermsAndConditions,
+      Config.cmsTermsCondition: isUrl ? Config.termsAndCondition : R.strings.ksTermsAndConditions,
     };
     return titleMap[webSlug] ?? "";
   }
