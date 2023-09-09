@@ -14,7 +14,7 @@ class DioClient {
   }
 
   ///Get Method
-  Future<Map<String, dynamic>> get(String path, {Map<String, dynamic>? queryParameters, Options? options, CancelToken? cancelToken, ProgressCallback? onReceiveProgress}) async {
+  Future<dynamic> get(String path, {Map<String, dynamic>? queryParameters, Options? options, CancelToken? cancelToken, ProgressCallback? onReceiveProgress}) async {
     try {
       final Response response = await _dio.get(
         path,
@@ -23,8 +23,8 @@ class DioClient {
         cancelToken: cancelToken,
         onReceiveProgress: onReceiveProgress,
       );
-      print("[GET]response:${response.data}");
       if (response.statusCode == 200) {
+        print("[GET]response:${response.data}");
         return response.data;
       }
       throw "something went wrong";
@@ -40,7 +40,7 @@ class DioClient {
   }
 
   ///Post Method
-  Future<Map<String, dynamic>> post(String path,
+  Future<dynamic> post(String path,
       {data, Map<String, dynamic>? queryParameters, Options? options, CancelToken? cancelToken, ProgressCallback? onSendProgress, ProgressCallback? onReceiveProgress}) async {
     try {
       final Response response = await _dio.post(
@@ -73,7 +73,7 @@ class DioClient {
   }
 
   ///Put Method
-  Future<Map<String, dynamic>> put(String path,
+  Future<dynamic> put(String path,
       {data, Map<String, dynamic>? queryParameters, Options? options, CancelToken? cancelToken, ProgressCallback? onSendProgress, ProgressCallback? onReceiveProgress}) async {
     try {
       final Response response = await _dio.put(
