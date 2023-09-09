@@ -1,28 +1,3 @@
-/*
- * Copyright (c) 2023 Technource. All rights reserved.
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
- *
- *  Email: support@technource.com
- *  Developed by Technource (https://www.technource.com)
- */
-
 import 'package:flutter_setup/global/extention/string_extensions.dart';
 
 /// All the text of the app will be defined here
@@ -55,6 +30,7 @@ class AppStrings {
   String get ksLoginButtonText => 'login_button_text'.toTranslate();
 
   String get scLoginMsg => 'login_success_message'.toTranslate();
+  String get scLoginFailMsg => 'login_fail_message'.toTranslate();
 
   String get erSelectLanguageMsg => 'select_language_error'.toTranslate();
 
@@ -77,8 +53,7 @@ class AppStrings {
 
   String get ksSignup => 'sign_up_button'.toTranslate();
 
-  String get ksAcceptTermAndConditionError =>
-      'accept_privacy_policy_error_text'.toTranslate();
+  String get ksAcceptTermAndConditionError => 'accept_privacy_policy_error_text'.toTranslate();
 
   String get ksEmailHint => 'email_hint'.toTranslate();
 
@@ -137,7 +112,6 @@ class AppStrings {
 
   String get ksBottomMenu => 'menu_text'.toTranslate();
 
-
   String get ksExitApp => 'exit_app'.toTranslate();
 
   String get ksSearchText => 'search_text'.toTranslate();
@@ -163,55 +137,42 @@ class AppStrings {
 
   String get ksDeleteAccount => 'delete_account'.toTranslate();
 
-  String get ksDeleteAccountDescription =>
-      'delete_account_description'.toTranslate();
+  String get ksDeleteAccountDescription => 'delete_account_description'.toTranslate();
 
-  String get ksLogoutAccountDescription =>
-      'logout_account_description'.toTranslate();
+  String get ksLogoutAccountDescription => 'logout_account_description'.toTranslate();
 
-  String get ksDeactivateAccountDescription =>
-      'deactivate_account_description'.toTranslate();
+  String get ksDeactivateAccountDescription => 'deactivate_account_description'.toTranslate();
 
   String get ksYes => 'yes_text'.toTranslate();
 
   String get ksNo => 'no_text'.toTranslate();
 
   //Edit Profile Screen String
-  String get ksEditProfileAppbarTitle =>
-      "edit_profile_appbar_text".toTranslate();
+  String get ksEditProfileAppbarTitle => "edit_profile_appbar_text".toTranslate();
 
   String get ksEditProfileNameHint => "edit_profile_name_hint".toTranslate();
 
-  String get ksEditProfileLNameHint =>
-      "edit_profile_lastname_hint".toTranslate();
+  String get ksEditProfileLNameHint => "edit_profile_lastname_hint".toTranslate();
 
   String get ksEditProfileEmailHint => "edit_profile_email_hint".toTranslate();
 
-  String get ksEditProfileUserNameHint =>
-      "edit_profile_username_hint".toTranslate();
+  String get ksEditProfileUserNameHint => "edit_profile_username_hint".toTranslate();
 
-  String get ksEditProfileCountryCodeHint =>
-      "edit_profile_countrycode_hint".toTranslate();
+  String get ksEditProfileCountryCodeHint => "edit_profile_countrycode_hint".toTranslate();
 
   String get ksEditProfilePhoneHint => "edit_profile_phone_hint".toTranslate();
 
-  String get ksEditProfileAddressHint =>
-      "edit_profile_address_hint".toTranslate();
+  String get ksEditProfileAddressHint => "edit_profile_address_hint".toTranslate();
 
-  String get ksEditProfileOfficeAddressHint =>
-      "edit_profile_office_address_hint".toTranslate();
+  String get ksEditProfileOfficeAddressHint => "edit_profile_office_address_hint".toTranslate();
 
-  String get ksEditProfileDilogueTitleHint =>
-      "edit_profile_dilogue_title".toTranslate();
+  String get ksEditProfileDilogueTitleHint => "edit_profile_dilogue_title".toTranslate();
 
-  String get ksEditProfileDilogueParaHint =>
-      "edit_profile_dilogue_para".toTranslate();
+  String get ksEditProfileDilogueParaHint => "edit_profile_dilogue_para".toTranslate();
 
-  String get ksEditProfileButtonText =>
-      "edit_profile_button_text".toTranslate();
+  String get ksEditProfileButtonText => "edit_profile_button_text".toTranslate();
 
-  String get ksEmailDilogueButtonText =>
-      "email_dilogue_button_text".toTranslate();
+  String get ksEmailDilogueButtonText => "email_dilogue_button_text".toTranslate();
 
   String get ksFillAlldetails => "fill_all_details".toTranslate();
 
@@ -236,6 +197,7 @@ class AppStrings {
   //DashboardTab
   String get ksDashboardHome => "home".toTranslate();
   String get ksDashboardOrder => "order".toTranslate();
+  String get ksDashboardClusters => "clusters".toTranslate();
   String get ksDashboardNotification => "notification".toTranslate();
   String get ksDashboardSetting => "setting".toTranslate();
 }
@@ -266,16 +228,10 @@ class AppStringsValidation {
 
   String get ksValidPassword => 'please_enter_valid_password'.toTranslate();
 
-  String get ksErrorNewPassword =>
-      'change_password_valid_new_password'.toTranslate();
+  String get ksErrorNewPassword => 'change_password_valid_new_password'.toTranslate();
 
   String get ksEnter6DigitOpt => 'enter_6_digits_otp'.toTranslate();
 
-
   String get ksEmptyHomeAddress => "empty_home_address".toTranslate();
   String get ksEmptyOfficeAddress => "empty_office_address".toTranslate();
-
-
-
-
 }

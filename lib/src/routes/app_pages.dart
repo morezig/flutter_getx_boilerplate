@@ -35,6 +35,8 @@ import 'package:flutter_setup/src/views/authorization/signup_screen/binding/sign
 import 'package:flutter_setup/src/views/authorization/signup_screen/signup_screen_view.dart';
 import 'package:flutter_setup/src/views/authorization/welcome_screen/binding/welcome_screen.dart';
 import 'package:flutter_setup/src/views/authorization/welcome_screen/welcome_screen_view.dart';
+import 'package:flutter_setup/src/views/clusters_page/binding/clusters_page.dart';
+import 'package:flutter_setup/src/views/clusters_page/clusters_page_view.dart';
 import 'package:flutter_setup/src/views/dashboard/binding/dashboard.dart';
 import 'package:flutter_setup/src/views/dashboard/dashboard_view.dart';
 import 'package:flutter_setup/src/views/setting_page/components/change_language_screen/binding/change_language_binding.dart';
@@ -69,80 +71,26 @@ class AppPages {
   static const INITIAL = Routes.splash;
 
   static final routes = [
+    GetPage(name: Routes.splash, page: () => SplashView(), transition: Transition.downToUp, binding: SplashBinding()),
+    GetPage(name: Routes.onBoard, page: () => const OnBoardView(), transition: Transition.downToUp, binding: OnBoardBinding()),
+    GetPage(name: Routes.selectLanguage, page: () => const SelectLanguageScreenView(), transition: Transition.downToUp, binding: SelectLanguageBinding()),
+    GetPage(name: Routes.welcomeScreen, page: () => const WelcomeScreenView(), transition: Transition.downToUp, binding: WelcomeScreenBinding()),
+    GetPage(name: Routes.loginScreen, page: () => const LoginScreenView(), transition: Transition.downToUp, binding: LoginScreenBinding()),
+    GetPage(name: Routes.signupScreen, page: () => const SignupScreenView(), transition: Transition.downToUp, binding: SignupScreenBinding()),
+    GetPage(name: Routes.forgetPasswordScreen, page: () => const ForgotPasswordView(), transition: Transition.downToUp, binding: ForgotPasswordScreenBinding()),
+    GetPage(name: Routes.otpScreen, page: () => const OtpScreenView(), transition: Transition.downToUp, binding: OtpScreenBinding()),
+    GetPage(name: Routes.dashboardScreen, page: () => DashboardScreen(), transition: Transition.downToUp, binding: DashboradBinding()),
+    GetPage(name: Routes.homeScreen, page: () => HomePageView(), transition: Transition.downToUp, binding: HomePageBinding()),
     GetPage(
-        name: Routes.splash,
-        page: () => SplashView(),
-        transition: Transition.downToUp,
-        binding: SplashBinding()),
-    GetPage(
-        name: Routes.onBoard,
-        page: () => const OnBoardView(),
-        transition: Transition.downToUp,
-        binding: OnBoardBinding()),
-    GetPage(
-        name: Routes.selectLanguage,
-        page: () => const SelectLanguageScreenView(),
-        transition: Transition.downToUp,
-        binding: SelectLanguageBinding()),
-    GetPage(
-        name: Routes.welcomeScreen,
-        page: () => const WelcomeScreenView(),
-        transition: Transition.downToUp,
-        binding: WelcomeScreenBinding()),
-    GetPage(
-        name: Routes.loginScreen,
-        page: () => const LoginScreenView(),
-        transition: Transition.downToUp,
-        binding: LoginScreenBinding()),
-    GetPage(
-        name: Routes.signupScreen,
-        page: () => const SignupScreenView(),
-        transition: Transition.downToUp,
-        binding: SignupScreenBinding()),
-    GetPage(
-        name: Routes.forgetPasswordScreen,
-        page: () => const ForgotPasswordView(),
-        transition: Transition.downToUp,
-        binding: ForgotPasswordScreenBinding()),
-    GetPage(
-        name: Routes.otpScreen,
-        page: () => const OtpScreenView(),
-        transition: Transition.downToUp,
-        binding: OtpScreenBinding()),
-    GetPage(
-        name: Routes.dashboardScreen,
-        page: () => DashboardScreen(),
-        transition: Transition.downToUp,
-        binding: DashboradBinding()),
-    GetPage(
-        name: Routes.homeScreen,
-        page: () => HomePageView(),
-        transition: Transition.downToUp,
-        binding: HomePageBinding()),
-    GetPage(
-        name: Routes.settingScreen,
-        page: () => SettingPageView(),
-        transition: Transition.downToUp,
-        binding: SettingPageBinding()),
-    GetPage(
-        name: Routes.editProfileScreen,
-        page: () => EditProfileView(),
-        transition: Transition.downToUp,
-        binding: EditProfileBinding()),
-    GetPage(
-        name: Routes.moreScreen,
-        page: () => const MoreScreenView(),
-        transition: Transition.downToUp,
-        binding: MoreScreenBinding()),
-    GetPage(
-        name: Routes.termsPrivacyScreen,
-        page: () => const WebPagesView(),
-        transition: Transition.downToUp,
-        binding: WebPagesBinding()),
-    GetPage(
-        name: Routes.changeLanguageScreen,
-        page: () => const ChangeLanguageScreenView(),
-        transition: Transition.downToUp,
-        binding: ChangeLanguageBinding())
+      name: Routes.clustersScreen,
+      page: () => ClustersPageView(),
+      transition: Transition.downToUp,
+      binding: ClustersPageBinding(),
+    ),
+    GetPage(name: Routes.settingScreen, page: () => SettingPageView(), transition: Transition.downToUp, binding: SettingPageBinding()),
+    GetPage(name: Routes.editProfileScreen, page: () => EditProfileView(), transition: Transition.downToUp, binding: EditProfileBinding()),
+    GetPage(name: Routes.moreScreen, page: () => const MoreScreenView(), transition: Transition.downToUp, binding: MoreScreenBinding()),
+    GetPage(name: Routes.termsPrivacyScreen, page: () => const WebPagesView(), transition: Transition.downToUp, binding: WebPagesBinding()),
+    GetPage(name: Routes.changeLanguageScreen, page: () => const ChangeLanguageScreenView(), transition: Transition.downToUp, binding: ChangeLanguageBinding())
   ];
 }

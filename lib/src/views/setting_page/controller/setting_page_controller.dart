@@ -1,28 +1,3 @@
-/*
- * Copyright (c) 2023 Technource. All rights reserved.
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
- *
- *  Email: support@technource.com
- *  Developed by Technource (https://www.technource.com)
- */
-
 import 'dart:ui';
 
 import 'package:flutter_setup/global/preference/user_preference.dart';
@@ -33,7 +8,6 @@ import 'package:flutter_setup/src/views/setting_page/model/drawer_model.dart';
 import 'package:get/get.dart';
 import 'package:flutter_setup/global/constant/resources/resources.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:flutter_setup/global/utils/utils.dart';
 import '../../../../global/dialog/dialog_helper.dart';
 
 class SettingPageController extends GetxController {
@@ -72,15 +46,11 @@ class SettingPageController extends GetxController {
     switch (drawerModel.selectedTile) {
       case 0:
         Logger.logPrint(drawerModel.title);
-        showCommonDialogue(
-            title: R.strings.ksDeleteAccount,
-            description: R.strings.ksDeleteAccountDescription);
+        showCommonDialogue(title: R.strings.ksDeleteAccount, description: R.strings.ksDeleteAccountDescription);
         break;
       case 1:
         Logger.logPrint(drawerModel.title);
-        showCommonDialogue(
-            title: R.strings.ksDeactivateAccount,
-            description: R.strings.ksDeactivateAccountDescription);
+        showCommonDialogue(title: R.strings.ksDeactivateAccount, description: R.strings.ksDeactivateAccountDescription);
         break;
       case 2:
         Logger.logPrint(drawerModel.title);
@@ -95,17 +65,12 @@ class SettingPageController extends GetxController {
   }
 
   Future<void> openGithub({required String url}) async {
-    if (!await launchUrl(Uri.parse(url),
-        mode: LaunchMode.externalApplication)) {
+    if (!await launchUrl(Uri.parse(url), mode: LaunchMode.externalApplication)) {
       throw Exception('Could not launch $url');
     }
   }
 
-  showCommonDialogue(
-      {required String title,
-      required String description,
-      VoidCallback? onPositiveButtonTap,
-      onNegativeButtonTap}) {
+  showCommonDialogue({required String title, required String description, VoidCallback? onPositiveButtonTap, onNegativeButtonTap}) {
     DialogueHelper.showCommonDialogue(
       onPositiveClick: onPositiveButtonTap ??
           () {

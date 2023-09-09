@@ -39,6 +39,7 @@ abstract class Routes {
   static const dashboardScreen = _Paths.dashboardScreen;
 
   static const homeScreen = _Paths.homeScreen;
+  static const clustersScreen = _Paths.clustersScreen;
   static const settingScreen = _Paths.settingScreen;
   static const editProfileScreen = _Paths.editProfileScreen;
   static const moreScreen = _Paths.moreScreen;
@@ -59,6 +60,7 @@ abstract class _Paths {
   static const otpScreen = '/otpScreen';
   static const dashboardScreen = '/dashboardScreen';
   static const homeScreen = '/homeScreen';
+  static const clustersScreen = '/clustersScreen';
   static const settingScreen = '/settingScreen';
   static const editProfileScreen = '/editProfileScreen';
   static const moreScreen = '/moreScreen';

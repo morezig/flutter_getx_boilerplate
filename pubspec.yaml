@@ -22,7 +22,7 @@ dependencies:
   flutter_svg:
   url_launcher: 
 
-
+  dio: ^5.3.2
 
   flutter: 
     sdk: flutter

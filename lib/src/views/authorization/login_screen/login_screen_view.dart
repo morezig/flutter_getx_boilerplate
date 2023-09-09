@@ -53,69 +53,49 @@ class LoginScreenView extends GetView<LoginScreenController> {
           resizeToAvoidBottomInset: false,
           body: SingleChildScrollView(
               child: Container(
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: ksWidgetHorizontalSpace15,
-                      vertical: ksWidgetVerticalSpace15),
+                  padding: const EdgeInsets.symmetric(horizontal: ksWidgetHorizontalSpace15, vertical: ksWidgetVerticalSpace15),
                   child: Form(
                       key: controller.loginScreenFormKey,
-                      child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const SizedBox(height: ksBodyHorizontalSpace30),
-                            InkWell(
-                                onTap: () =>
-                                    Get.offAllNamed(Routes.welcomeScreen),
-                                child: Image.asset(AppAssets.icWhiteBack,
-                                    width: 25, height: 25)),
-                            const SizedBox(height: ksBodyHorizontalSpace30),
-                            Text(R.strings.ksWelcomeBack,
-                                style: AppStyles.txt32sizeWithW700),
-                            SizedBox(height: Get.height * 0.001),
-                            Text(R.strings.ksGladToSeeYou,
-                                style: AppStyles.txt14sizeW600ckcWhite
-                                    .copyWith(fontSize: 18)),
-                            SizedBox(height: Get.height * 0.04),
-                            buildEmailField(),
-                            const SizedBox(height: ksVerticalSpace15),
-                            buildPasswordField(),
-                            const SizedBox(height: ksVerticalSpace15),
-                            forgotPasswordComponent(),
-                            SizedBox(height: Get.height * 0.05),
-                            AppButton(
-                                onTap: () => controller.loginValidation(),
-                                btnText: R.strings.ksLoginButtonText),
-                            SizedBox(height: Get.height * 0.03),
-                            dontHaveAnAccountComponent(),
-                            SizedBox(height: Get.height * 0.05),
-                            const CommonLogo()
-                          ])))),
+                      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                        const SizedBox(height: ksBodyHorizontalSpace30),
+                        InkWell(onTap: () => Get.offAllNamed(Routes.welcomeScreen), child: Image.asset(AppAssets.icWhiteBack, width: 25, height: 25)),
+                        const SizedBox(height: ksBodyHorizontalSpace30),
+                        Text(R.strings.ksWelcomeBack, style: AppStyles.txt32sizeWithW700),
+                        SizedBox(height: Get.height * 0.001),
+                        Text(R.strings.ksGladToSeeYou, style: AppStyles.txt14sizeW600ckcWhite.copyWith(fontSize: 18)),
+                        SizedBox(height: Get.height * 0.04),
+                        buildEmailField(),
+                        const SizedBox(height: ksVerticalSpace15),
+                        buildPasswordField(),
+                        const SizedBox(height: ksVerticalSpace15),
+                        // forgotPasswordComponent(),
+                        SizedBox(height: Get.height * 0.05),
+                        AppButton(onTap: () => controller.loginValidation(), btnText: R.strings.ksLoginButtonText),
+                        // SizedBox(height: Get.height * 0.03),
+                        // dontHaveAnAccountComponent(),
+                        // SizedBox(height: Get.height * 0.05),
+                        const CommonLogo()
+                      ])))),
         ));
   }
 
   forgotPasswordComponent() {
     return Align(
-        alignment: Alignment.topRight,
-        child: InkWell(
-            onTap: () => Get.toNamed(Routes.forgetPasswordScreen),
-            child: Text(R.strings.ksForgotPassword,
-                style: AppStyles.txt14sizeWithW600Underline)));
+        alignment: Alignment.topRight, child: InkWell(onTap: () => Get.toNamed(Routes.forgetPasswordScreen), child: Text(R.strings.ksForgotPassword, style: AppStyles.txt14sizeWithW600Underline)));
   }
 
   dontHaveAnAccountComponent() {
     return Center(
         child: RichText(
-            text: TextSpan(
-                text: '${R.strings.ksDontHaveAnAccount} ',
-                style: AppStyles.txt14sizeW600ckcWhite,
-                children: <TextSpan>[
-          TextSpan(
-              text: R.strings.ksSignUp,
-              style: AppStyles.txt14sizeWithW600Underline,
-              recognizer: TapGestureRecognizer()
-                ..onTap = () {
-                  Get.toNamed(Routes.signupScreen);
-                })
-        ])));
+            text: TextSpan(text: '${R.strings.ksDontHaveAnAccount} ', style: AppStyles.txt14sizeW600ckcWhite, children: <TextSpan>[
+      TextSpan(
+          text: R.strings.ksSignUp,
+          style: AppStyles.txt14sizeWithW600Underline,
+          recognizer: TapGestureRecognizer()
+            ..onTap = () {
+              Get.toNamed(Routes.signupScreen);
+            })
+    ])));
   }
 
   buildEmailField() {
@@ -124,7 +104,7 @@ class LoginScreenView extends GetView<LoginScreenController> {
         hintText: R.strings.ksEmailOrPassword,
         onChanged: (value) {},
         errorText: '',
-        validator: Validator.validateEmail,
+        validator: Validator.validateUserName,
         textEditingController: controller.emailTextEditingController,
         keyBoardType: TextInputType.emailAddress,
         textCapitalization: TextCapitalization.none);
@@ -137,9 +117,7 @@ class LoginScreenView extends GetView<LoginScreenController> {
           textCapitalization: TextCapitalization.none,
           isPwd: controller.isShowPassword.value ? false : true,
           maxLines: 1,
-          suffixIconPath: controller.isShowPassword.value
-              ? AppAssets.passwordHide
-              : AppAssets.passwordShow,
+          suffixIconPath: controller.isShowPassword.value ? AppAssets.passwordHide : AppAssets.passwordShow,
           onSuffixIconTap: () {
             controller.isShowPassword.value = !controller.isShowPassword.value;
           },
