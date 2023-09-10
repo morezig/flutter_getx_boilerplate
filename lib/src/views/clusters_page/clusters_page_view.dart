@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:semaphore_web/src/views/clusters_page/model/cluster_model.dart';
 
+import '../../routes/app_pages.dart';
 import 'controller/clusters_page_controller.dart';
 
 class ClustersPageView extends GetView<ClustersPageController> {
@@ -23,6 +25,17 @@ class ClustersPageView extends GetView<ClustersPageController> {
                     const Text("Clusters"),
                     InkWell(
                       onTap: () {
+                        Get.toNamed(
+                          Routes.clusterScreen,
+                          arguments: [
+                            {"cluster": ClusterModel(id: 0)},
+                          ],
+                        );
+                      },
+                      child: const Text("Add Cluster"),
+                    ),
+                    InkWell(
+                      onTap: () {
                         clustersPageController.getCMDBPgCluster();
                       },
                       child: const Text("Refresh Clusters"),
@@ -42,6 +55,12 @@ class ClustersPageView extends GetView<ClustersPageController> {
                         trailing: IconButton(
                           onPressed: () {
                             print('${clustersPageController.clusterList[index].id} press');
+                            Get.toNamed(
+                              Routes.clusterScreen,
+                              arguments: [
+                                {"cluster": clustersPageController.clusterList[index]},
+                              ],
+                            );
                           },
                           icon: const Icon(
                             Icons.edit,

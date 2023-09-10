@@ -24,7 +24,7 @@ class DioClient {
         onReceiveProgress: onReceiveProgress,
       );
       if (response.statusCode == 200) {
-        print("[GET]response:${response.data}");
+        // print("[GET]response:${response.data}");
         return response.data;
       }
       throw "something went wrong";
@@ -85,7 +85,7 @@ class DioClient {
         onSendProgress: onSendProgress,
         onReceiveProgress: onReceiveProgress,
       );
-      print("[PUT]response:${response.data}");
+      // print("[PUT]response:${response.data}");
       if (response.statusCode == 200) {
         return response.data;
       }
@@ -112,7 +112,7 @@ class DioClient {
         options: options,
         cancelToken: cancelToken,
       );
-      print("[DELETE]response:${response.data}");
+      // print("[DELETE]response:${response.data}");
       if (response.statusCode == 204) {
         return response.data;
       }

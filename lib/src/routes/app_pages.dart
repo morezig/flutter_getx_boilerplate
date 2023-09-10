@@ -61,6 +61,7 @@ import 'package:semaphore_web/src/views/home_page/home_page_view.dart';
 
 import 'package:semaphore_web/src/views/setting_page/binding/setting_page.dart';
 
+import '../views/clusters_page/component/cluster_view.dart';
 import '../views/setting_page/components/more_screen/web_pages/binding/web_pages_binding.dart';
 
 part 'app_routes.dart';
@@ -84,6 +85,12 @@ class AppPages {
     GetPage(
       name: Routes.clustersScreen,
       page: () => ClustersPageView(),
+      transition: Transition.downToUp,
+      binding: ClustersPageBinding(),
+    ),
+    GetPage(
+      name: Routes.clusterScreen,
+      page: () => ClusterView(),
       transition: Transition.downToUp,
       binding: ClustersPageBinding(),
     ),
