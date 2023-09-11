@@ -260,11 +260,18 @@ class ClusterView extends GetView<ClustersPageController> {
                               6. call inventory_load
                              */
 
+                            // create key
                             await clustersPageController.addAccessKey(cluster, "whatever");
+
+                            // get access key
                             int accKeyId = await clustersPageController.getAccessKey(cluster);
                             print('accKeyId:$accKeyId');
                             cluster.sshKeyId = accKeyId;
+
+                            // create inventory
                             ClusterModel newInv = await clustersPageController.addInventory(cluster);
+
+                            // create template
                             TemplateModel tplNode = await clustersPageController.addTemplate(newInv, "node", "[\"-l\", \"${newInv.name!}\"]");
                             TemplateModel tplEtcd = await clustersPageController.addTemplate(newInv, "etcd", "[]");
                             TemplateModel tplCes = await clustersPageController.addTemplate(newInv, "ces", "[\"-l\", \"${newInv.name!}\"]");
