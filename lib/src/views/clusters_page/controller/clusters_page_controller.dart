@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:semaphore_web/src/views/clusters_page/model/cluster_model.dart';
 
 import '../../../../global/apis/dio_client.dart';
+import '../model/template_model.dart';
 
 class ClustersPageController extends GetxController {
   static ClustersPageController get to => Get.find();
@@ -96,7 +97,8 @@ class ClustersPageController extends GetxController {
     return retCluster;
   }
 
-  Future<void> addTemplate(ClusterModel cluster, String tplName, String argus) async {
+  Future<TemplateModel> addTemplate(ClusterModel cluster, String tplName, String argus) async {
+    TemplateModel retTemplate = TemplateModel();
     try {
       var response = await DioClient.instance.post(
         "/api/project/1/templates",
@@ -110,6 +112,51 @@ class ClustersPageController extends GetxController {
           "arguments": argus.isNotEmpty ? argus : "[]",
         },
       );
+      var modelTemplate = TemplateModel.fromJson(response);
+      retTemplate = modelTemplate;
+    } on DioException catch (e) {
+      print("DioException:${e.message}");
+      rethrow;
+    } catch (ex) {
+      print("Exception:$ex");
+      // rethrow;
+    }
+
+    return retTemplate;
+  }
+
+  Future<void> AddTask(TemplateModel tpl) async {
+    print("[AddTask]tpl:${tpl}");
+    try {
+      var response = await DioClient.instance.post(
+        "/api/project/1/tasks",
+        data: {
+          "project_id": 1,
+          "template_id": tpl.id,
+        },
+      );
+      print("[AddTask]response:${response}");
+    } on DioException catch (e) {
+      print("DioException:${e.message}");
+      rethrow;
+    } catch (ex) {
+      print("Exception:$ex");
+      // rethrow;
+    }
+  }
+
+  Future<void> AddSchedule(TemplateModel tpl) async {
+    print("[AddSchedule]tpl:${tpl}");
+    try {
+      var response = await DioClient.instance.post(
+        "/api/project/1/schedules",
+        data: {
+          "project_id": 1,
+          "repository_id": 1,
+          "template_id": tpl.id,
+        },
+      );
+      print("[AddSchedule]response:${response}");
     } on DioException catch (e) {
       print("DioException:${e.message}");
       rethrow;

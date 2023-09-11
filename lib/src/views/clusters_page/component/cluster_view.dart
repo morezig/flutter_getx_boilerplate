@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:get/get.dart';
+import 'package:semaphore_web/src/views/clusters_page/model/template_model.dart';
 import 'package:yaml/yaml.dart';
 import 'package:semaphore_web/src/views/clusters_page/model/cluster_model.dart';
 
@@ -264,9 +265,12 @@ class ClusterView extends GetView<ClustersPageController> {
                             print('accKeyId:$accKeyId');
                             cluster.sshKeyId = accKeyId;
                             ClusterModel newInv = await clustersPageController.addInventory(cluster);
-                            await clustersPageController.addTemplate(newInv, "node", "[\"-l\", \"${newInv.name!}\"]");
-                            await clustersPageController.addTemplate(newInv, "etcd", "[]");
-                            await clustersPageController.addTemplate(newInv, "ces", "[\"-l\", \"${newInv.name!}\"]");
+                            TemplateModel tplNode = await clustersPageController.addTemplate(newInv, "node", "[\"-l\", \"${newInv.name!}\"]");
+                            TemplateModel tplEtcd = await clustersPageController.addTemplate(newInv, "etcd", "[]");
+                            TemplateModel tplCes = await clustersPageController.addTemplate(newInv, "ces", "[\"-l\", \"${newInv.name!}\"]");
+
+                            // run tasks
+                            await clustersPageController.AddTask(tplNode);
                           },
                           child: const Text('Save'),
                         ),
