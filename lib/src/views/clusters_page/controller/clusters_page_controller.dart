@@ -75,6 +75,9 @@ class ClustersPageController extends GetxController {
   Future<ClusterModel> addInventory(ClusterModel cluster) async {
     ClusterModel retCluster = ClusterModel();
     try {
+      cluster.type = 'file';
+      // cluster.inventory = '/opt/Crystaldb/pb/crystaldb.yml';
+      cluster.inventory = 'crystaldb.yml';
       var response = await DioClient.instance.post(
         "/api/project/1/inventory",
         data: cluster.toJson(),
@@ -93,7 +96,7 @@ class ClustersPageController extends GetxController {
     return retCluster;
   }
 
-  Future<void> addTemplate(ClusterModel cluster, String tplName) async {
+  Future<void> addTemplate(ClusterModel cluster, String tplName, String argus) async {
     try {
       var response = await DioClient.instance.post(
         "/api/project/1/templates",
@@ -104,6 +107,7 @@ class ClustersPageController extends GetxController {
           "environment_id": 1,
           "name": '${cluster.name}-$tplName',
           "playbook": "$tplName.yml",
+          "arguments": argus.isNotEmpty ? argus : "[]",
         },
       );
     } on DioException catch (e) {

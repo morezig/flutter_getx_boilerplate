@@ -28,6 +28,7 @@ class ClusterView extends GetView<ClustersPageController> {
         padding: const EdgeInsets.all(16.0),
         children: [
           buttonActions('Actions', cluster),
+          buttonContents('ETCD', () {}, []),
           buttonContents('Nodes', () {}, getNodesFromClusterData(cluster)),
           // buttonContents('Vars', () {}, getVarsFromClusterData(cluster)),
           buttonContents('Users', () {}, getPgUsersFromClusterData(cluster)),
@@ -177,19 +178,19 @@ class ClusterView extends GetView<ClustersPageController> {
                 child: TextButton.icon(
                   style: TextButton.styleFrom(
                     foregroundColor: Colors.green[800],
-                    shape: RoundedRectangleBorder(
+                    shape: const RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(Radius.circular(4)),
                     ),
                   ),
-                  icon: Icon(Icons.add_circle, color: Colors.green),
-                  label: Text("Add", style: TextStyle(color: Colors.green)),
+                  icon: const Icon(Icons.add_circle, color: Colors.green),
+                  label: const Text("Add", style: TextStyle(color: Colors.green)),
                   onPressed: addBtnFunc(),
                 ),
               ),
             ),
-            Visibility(
+            const Visibility(
               visible: true,
-              child: const Divider(
+              child: Divider(
                 height: 1.0,
                 thickness: 1.0,
               ),
@@ -214,7 +215,7 @@ class ClusterView extends GetView<ClustersPageController> {
 
   Widget buttonActions(String title, ClusterModel cluster) {
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 8.0),
+      padding: const EdgeInsets.symmetric(vertical: 8.0),
       child: Card(
         clipBehavior: Clip.antiAlias,
         child: Column(
@@ -238,12 +239,11 @@ class ClusterView extends GetView<ClustersPageController> {
                         borderRadius: BorderRadius.circular(3.0), //3像素圆角
                       ),
                       child: Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 5.0, vertical: 5.0),
+                        padding: const EdgeInsets.symmetric(horizontal: 5.0, vertical: 5.0),
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
                             foregroundColor: Colors.white,
                           ),
-                          //themeData.extension<AppButtonTheme>()!.infoElevated,
                           onPressed: () async {
                             /*
                               1. gen Inventory content
@@ -264,11 +264,11 @@ class ClusterView extends GetView<ClustersPageController> {
                             print('accKeyId:$accKeyId');
                             cluster.sshKeyId = accKeyId;
                             ClusterModel newInv = await clustersPageController.addInventory(cluster);
-                            await clustersPageController.addTemplate(newInv, "node");
-                            await clustersPageController.addTemplate(newInv, "etcd");
-                            await clustersPageController.addTemplate(newInv, "ces");
+                            await clustersPageController.addTemplate(newInv, "node", "[\"-l\", \"${newInv.name!}\"]");
+                            await clustersPageController.addTemplate(newInv, "etcd", "[]");
+                            await clustersPageController.addTemplate(newInv, "ces", "[\"-l\", \"${newInv.name!}\"]");
                           },
-                          child: Text('Save'),
+                          child: const Text('Save'),
                         ),
                       ),
                     ),
@@ -277,14 +277,14 @@ class ClusterView extends GetView<ClustersPageController> {
                         borderRadius: BorderRadius.circular(3.0), //3像素圆角
                       ),
                       child: Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 5.0, vertical: 5.0),
+                        padding: const EdgeInsets.symmetric(horizontal: 5.0, vertical: 5.0),
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
                             foregroundColor: Colors.white,
                           ),
                           //themeData.extension<AppButtonTheme>()!.infoElevated,
                           onPressed: () async {},
-                          child: Text('Install Env'),
+                          child: const Text('Install Env'),
                         ),
                       ),
                     ),
@@ -293,14 +293,14 @@ class ClusterView extends GetView<ClustersPageController> {
                         borderRadius: BorderRadius.circular(3.0), //3像素圆角
                       ),
                       child: Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 5.0, vertical: 5.0),
+                        padding: const EdgeInsets.symmetric(horizontal: 5.0, vertical: 5.0),
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
                             foregroundColor: Colors.white,
                           ),
                           //themeData.extension<AppButtonTheme>()!.infoElevated,
                           onPressed: () async {},
-                          child: Text('switchover'),
+                          child: const Text('switchover'),
                         ),
                       ),
                     ),
@@ -309,14 +309,14 @@ class ClusterView extends GetView<ClustersPageController> {
                         borderRadius: BorderRadius.circular(3.0), //3像素圆角
                       ),
                       child: Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 5.0, vertical: 5.0),
+                        padding: const EdgeInsets.symmetric(horizontal: 5.0, vertical: 5.0),
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
                             foregroundColor: Colors.white,
                           ),
                           //themeData.extension<AppButtonTheme>()!.infoElevated,
                           onPressed: () async {},
-                          child: Text('failover'),
+                          child: const Text('failover'),
                         ),
                       ),
                     ),
