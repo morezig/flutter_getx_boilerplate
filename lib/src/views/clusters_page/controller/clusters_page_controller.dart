@@ -13,7 +13,7 @@ class ClustersPageController extends GetxController {
   Future<void> getCMDBPgCluster() async {
     try {
       var response = await DioClient.instance.get(
-        "/api/crys/metaview/pg_config",
+        "/api/crys/metaview/pg_cluster",
       );
       print(response);
     } on DioException catch (e) {
