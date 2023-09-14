@@ -36,7 +36,7 @@ class ClustersPageView extends GetView<ClustersPageController> {
                     ),
                     InkWell(
                       onTap: () {
-                        clustersPageController.getCMDBPgCluster();
+                        clustersPageController.getPgCluster();
                       },
                       child: const Text("Refresh Clusters"),
                     ),
@@ -54,6 +54,7 @@ class ClustersPageView extends GetView<ClustersPageController> {
                         leading: Text('Id: ${clustersPageController.clusterList[index].id}'),
                         trailing: IconButton(
                           onPressed: () {
+                            clustersPageController.getCMDBPgCluster();
                             print('${clustersPageController.clusterList[index].id} press');
                             Get.toNamed(
                               Routes.clusterScreen,

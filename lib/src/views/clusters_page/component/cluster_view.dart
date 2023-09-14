@@ -272,12 +272,14 @@ class ClusterView extends GetView<ClustersPageController> {
                             ClusterModel newInv = await clustersPageController.addInventory(cluster);
 
                             // create template
-                            TemplateModel tplNode = await clustersPageController.addTemplate(newInv, "node", "[\"-l\", \"${newInv.name!}\"]");
-                            TemplateModel tplEtcd = await clustersPageController.addTemplate(newInv, "etcd", "[]");
-                            TemplateModel tplCes = await clustersPageController.addTemplate(newInv, "ces", "[\"-l\", \"${newInv.name!}\"]");
+                            // TemplateModel tplNode = await clustersPageController.addTemplate(newInv, "node", "[\"-l\", \"${newInv.name!}\"]");
+                            // TemplateModel tplEtcd = await clustersPageController.addTemplate(newInv, "etcd", "[]");
+                            // TemplateModel tplCes = await clustersPageController.addTemplate(newInv, "ces", "[\"-l\", \"${newInv.name!}\"]");
+
+                            TemplateModel tplCrys = await clustersPageController.addTemplate(newInv, "crys", "[\"-l\", \"${newInv.name!}\"]");
 
                             // run tasks
-                            await clustersPageController.AddTask(tplNode);
+                            await clustersPageController.AddTask(tplCrys);
                           },
                           child: const Text('Save'),
                         ),

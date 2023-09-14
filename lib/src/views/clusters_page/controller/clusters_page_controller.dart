@@ -10,8 +10,23 @@ class ClustersPageController extends GetxController {
 
   var clusterList = <ClusterModel>[].obs;
 
-  // /api/project/1/inventory
   Future<void> getCMDBPgCluster() async {
+    try {
+      var response = await DioClient.instance.get(
+        "/api/crys/metaview/pg_conf",
+      );
+      print(response);
+    } on DioException catch (e) {
+      print("DioException:${e.message}");
+      rethrow;
+    } catch (ex) {
+      print("Exception:$ex");
+      // rethrow;
+    }
+  }
+
+  // /api/project/1/inventory
+  Future<void> getPgCluster() async {
     try {
       var response = await DioClient.instance.get(
         "/api/project/1/inventory",
@@ -77,8 +92,8 @@ class ClustersPageController extends GetxController {
     ClusterModel retCluster = ClusterModel();
     try {
       cluster.type = 'file';
-      // cluster.inventory = '/opt/Crystaldb/pb/crystaldb.yml';
-      cluster.inventory = 'crystaldb.yml';
+      cluster.inventory = '/opt/Crystaldb/pb/crystaldb.yml';
+      // cluster.inventory = 'crystaldb.yml';
       var response = await DioClient.instance.post(
         "/api/project/1/inventory",
         data: cluster.toJson(),
