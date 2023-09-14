@@ -25,5 +25,5 @@ class Config {
   //Arguments
   static const String argSlug = "argCms";
 
-  static const String apiBaseUrl = "http://192.168.1.121:2999/cct";
+  static const String apiBaseUrl = "http://192.168.1.110:2999/cct";
 }
