@@ -92,7 +92,7 @@ class ClustersPageController extends GetxController {
     ClusterModel retCluster = ClusterModel();
     try {
       cluster.type = 'file';
-      cluster.inventory = '/opt/Crystaldb/pb/crystaldb.yml';
+      cluster.inventory = '/opt/CrystalDB/pb/crystaldb.yml';
       // cluster.inventory = 'crystaldb.yml';
       var response = await DioClient.instance.post(
         "/api/project/1/inventory",
