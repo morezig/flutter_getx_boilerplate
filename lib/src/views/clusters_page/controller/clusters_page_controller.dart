@@ -125,6 +125,7 @@ class ClustersPageController extends GetxController {
           "name": '${cluster.name}-$tplName',
           "playbook": "$tplName.yml",
           "arguments": argus.isNotEmpty ? argus : "[]",
+          "vault_key_id": 2,
         },
       );
       var modelTemplate = TemplateModel.fromJson(response);
