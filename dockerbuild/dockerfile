@@ -18,12 +18,22 @@ RUN pwd && ls
 RUN cp postgresql/debian postgresql-$PGVER -rf
 
 # RUN cd postgreql-$PGVER && dpkg-buildpackage -rfakeroot -b -uc -us
-RUN apt-get install -y openssh-server
-RUN echo 'root:password' | chpasswd
-RUN echo "Port 22" >> /etc/ssh/sshd_config
-RUN echo "PasswordAuthentication yes" >> /etc/ssh/sshd_config
-RUN echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
+RUN apt install  openssh-server sudo -y
+
+RUN useradd -rm -d /home/ubuntu -s /bin/bash -g root -G sudo -u 1000 test 
+
+RUN echo 'test:test' | chpasswd
+
+RUN service ssh start
 
 EXPOSE 22
 
-CMD /etc/init.d/ssh restart
+CMD ["/usr/sbin/sshd","-D"]
+
+# RUN apt-get install -y openssh-server
+# RUN echo 'root:password' | chpasswd
+# RUN echo "Port 22" >> /etc/ssh/sshd_config
+# RUN echo "PasswordAuthentication yes" >> /etc/ssh/sshd_config
+# RUN echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
+# EXPOSE 22
+# CMD /etc/init.d/ssh restart

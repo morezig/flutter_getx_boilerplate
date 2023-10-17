@@ -1,5 +1,7 @@
 docker build --rm -t ubuntubuildpg16 .
 docker build --no-cache --rm -t ubuntubuildpg16 .
 
+docker run  -d -it -p8022:22 --name buildpg16 ubuntubuildpg16
+
 docker rmi ubuntubuildpg16
 docker builder prune -af
