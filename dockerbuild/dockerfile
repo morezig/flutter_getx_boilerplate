@@ -1,0 +1,29 @@
+FROM ubuntu:22.04
+
+ARG PGVER="16.0"
+
+RUN apt-get update
+RUN apt-get install -y wget
+RUN apt-get install -y git
+RUN apt-get install -y dpkg-dev
+
+
+RUN wget https://ftp.postgresql.org/pub/source/v16.0/postgresql-16.0.tar.gz
+RUN tar -zxvf postgresql-$PGVER.tar.gz
+
+RUN git clone https://salsa.debian.org/postgresql/postgresql.git
+
+RUN pwd && ls
+
+RUN cp postgresql/debian postgresql-$PGVER -rf
+
+# RUN cd postgreql-$PGVER && dpkg-buildpackage -rfakeroot -b -uc -us
+RUN apt-get install -y openssh-server
+RUN echo 'root:password' | chpasswd
+RUN echo "Port 22" >> /etc/ssh/sshd_config
+RUN echo "PasswordAuthentication yes" >> /etc/ssh/sshd_config
+RUN echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
+
+EXPOSE 22
+
+CMD /etc/init.d/ssh restart
