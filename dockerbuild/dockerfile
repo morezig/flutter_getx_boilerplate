@@ -1,39 +1,36 @@
-FROM ubuntu:22.04
+FROM ubuntu:23.10
 
+# ARGs
 ARG PGVER="16.0"
+ARG TDEBRANCH="PG_16_TDE_1_1"
+ARG SALSAVER="16"
 
+# Install build libs
 RUN apt-get update
 RUN apt-get install -y wget
 RUN apt-get install -y git
 RUN apt-get install -y dpkg-dev
 
+# Get Postgresql source
+# RUN wget https://ftp.postgresql.org/pub/source/v16.0/postgresql-16.0.tar.gz
+# RUN tar -zxvf postgresql-$PGVER.tar.gz
 
-RUN wget https://ftp.postgresql.org/pub/source/v16.0/postgresql-16.0.tar.gz
-RUN tar -zxvf postgresql-$PGVER.tar.gz
-
-RUN git clone https://salsa.debian.org/postgresql/postgresql.git
-
-RUN pwd && ls
-
+# Get TDE Postgresql source and build scripts
+RUN git clone -b $TDEBRANCH https://github.com/cybertec-postgresql/postgres.git postgresql-$PGVER
+RUN git clone -b $SALSAVER https://salsa.debian.org/postgresql/postgresql.git
 RUN cp postgresql/debian postgresql-$PGVER -rf
 
-# RUN cd postgreql-$PGVER && dpkg-buildpackage -rfakeroot -b -uc -us
+# Build Postgresql for TDE
+
+RUN apt-get install -y autoconf bison clang-15 debhelper-compat dh-exec docbook-xml docbook-xsl flex gdb gettext libicu-dev libio-pty-perl libipc-run-perl libkrb5-dev libldap2-dev liblz4-dev libpam0g-dev libpam-dev libperl-dev libreadline-dev libselinux1-dev libssl-dev libsystemd-dev libxml2-dev libxml2-utils libxslt1-dev libzstd-dev llvm-15-dev lz4 liblz4-tool pkg-config postgresql-common python3-dev systemtap-sdt-dev tcl-dev tzdata uuid-dev xsltproc zlib1g-dev libz-dev zstd
+RUN cd /postgreql-$PGVER && dpkg-buildpackage -rfakeroot -b -uc -us
+
+# SSH Setup
 RUN apt install  openssh-server sudo -y
-
 RUN useradd -rm -d /home/ubuntu -s /bin/bash -g root -G sudo -u 1000 test 
-
 RUN echo 'test:test' | chpasswd
-
 RUN service ssh start
 
 EXPOSE 22
 
 CMD ["/usr/sbin/sshd","-D"]
-
-# RUN apt-get install -y openssh-server
-# RUN echo 'root:password' | chpasswd
-# RUN echo "Port 22" >> /etc/ssh/sshd_config
-# RUN echo "PasswordAuthentication yes" >> /etc/ssh/sshd_config
-# RUN echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
-# EXPOSE 22
-# CMD /etc/init.d/ssh restart
