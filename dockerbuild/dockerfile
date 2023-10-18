@@ -22,11 +22,11 @@ RUN cp postgresql/debian postgresql-$PGVER -rf
 
 # Build Postgresql for TDE
 
-RUN apt-get install -y autoconf bison clang-15 debhelper-compat dh-exec docbook-xml docbook-xsl flex gdb gettext libicu-dev libio-pty-perl libipc-run-perl libkrb5-dev libldap2-dev liblz4-dev libpam0g-dev libpam-dev libperl-dev libreadline-dev libselinux1-dev libssl-dev libsystemd-dev libxml2-dev libxml2-utils libxslt1-dev libzstd-dev llvm-15-dev lz4 liblz4-tool pkg-config postgresql-common python3-dev systemtap-sdt-dev tcl-dev tzdata uuid-dev xsltproc zlib1g-dev libz-dev zstd
-RUN cd /postgreql-$PGVER && dpkg-buildpackage -rfakeroot -b -uc -us
+# RUN apt-get install -y autoconf bison clang-15 debhelper-compat dh-exec docbook-xml docbook-xsl flex gdb gettext libicu-dev libio-pty-perl libipc-run-perl libkrb5-dev libldap2-dev liblz4-dev libpam0g-dev libpam-dev libperl-dev libreadline-dev libselinux1-dev libssl-dev libsystemd-dev libxml2-dev libxml2-utils libxslt1-dev libzstd-dev llvm-15-dev lz4 liblz4-tool pkg-config postgresql-common python3-dev systemtap-sdt-dev tcl-dev tzdata uuid-dev xsltproc zlib1g-dev libz-dev zstd
+# RUN cd /postgreql-$PGVER && dpkg-buildpackage -rfakeroot -b -uc -us
 
 # SSH Setup
-RUN apt install  openssh-server sudo -y
+RUN apt install -y openssh-server sudo
 RUN useradd -rm -d /home/ubuntu -s /bin/bash -g root -G sudo -u 1000 test 
 RUN echo 'test:test' | chpasswd
 RUN service ssh start
